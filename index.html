@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <i data-lucide="X" id="menu-icon"></i>
+
+    <aside>
+        <div class="circleShadow">
+        <img src="assets/Picture.png" alt="Kareem Ahmed" />
+        </div>
+        
+        <div class="title">
+      <div class="top"></div>
+      <div class="left"></div>
+        <h1 class="name">Kareem Ahmed</h1>
+      <div class="right"></div>
+      <div class="bottom"></div>
+      </div>
+      <hr />
+      <nav>
+          <a href="#Home">Home</a>
+          <a href="#About">About</a>
+          <a href="#GitHub">GitHub Statistics</a>
+          <a href="#Skills">Skills</a>
+        <a href="#Projects">Projects</a>
+        <a href="#Contact">Contact</a>
+        
+              <button onclick="toggleTheme()">
+                <i data-lucide="moon" id="theme-toggle"></i>
+              </button>
+      </nav>
+    </aside>
+
+    <main id="main-content">
+
+    <section id="Home">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Explore my projects and skills.</p>
+        
+        <div class="scroll-indicator">
+        <span>Scroll</span> 
+          <i data-lucide="arrow-down" id="scroll-down"></i>
+        </div>
+      </section>
+
+    <div style="height: 200px;"></div>
+
+      <section id="About">
+        <h2><span class="highlight">About</span> Me</h2>
+        
+        <div class="about-container">
+
+          <div class="personal-info-card">
+            <div class="info-header">
+              <div class="profile-image">
+                <img src="assets/Picture.png" alt="Kareem Ahmed">
+              </div>
+              <div class="basic-info">
+                <h3>Kareem Ahmed</h3>
+                <p class="title">Computer science student</p>
+                <div class="location">
+                  <i data-lucide="map-pin"></i>
+                  <span>Egypt</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-details">
+              <div class="detail-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Computer Science Student at <a href="https://msa.edu.eg/msauniversity/" target="_blank" class="inline-link">MSA University</a></span>
+              </div>
+              <div class="detail-item">
+                <i data-lucide="folder"></i>
+                <span>Active on <a href="https://github.com/kareemH-1" target="_blank" class="inline-link">GitHub</a></span>
+              </div>
+              <div class="detail-item">
+                <i data-lucide="code"></i>
+                <span>C++, Python , JavaScript , React , PHP</span>
+              </div>
+              <div class="detail-item">
+                <i data-lucide="trophy"></i>
+                <span>Competitive Programmer</span>
+              </div>
+            </div>
+            
+            <div class="action-buttons">
+              <a href="https://github.com/kareemH-1" target="_blank" class="btn btn-primary">
+                <i data-lucide="github"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/kareem-ahmed-4bbbb9376/" target="_blank" class="btn btn-secondary">
+                <i data-lucide="linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="assets/MyCV.pdf" class="btn btn-accent" target="_blank">
+                <i data-lucide="download"></i>
+                <span>Get CV</span>
+              </a>
+            </div>
+          </div>
+<div class="about-text">
+  <p>Hello, I’m Kareem Ahmed — a computer science student passionate about programming, problem solving, and creating meaningful digital experiences. My interests span web development, game development, and competitive programming.</p>
+
+  <p>I believe in learning through building. I started with 
+    <a href="https://github.com/KareemH-1/React" class="inline-link" style="color: var(--text-color);">small front-end projects</a>, 
+    then moved on to frameworks like 
+    <a href="https://github.com/KareemH-1/Front-end-projects" class="inline-link" style="color: var(--text-color);">React</a>. 
+    I’ve also taken part in group work, including 
+    <a href="https://github.com/KareemH-1/Trio_Web_Projects" class="inline-link" style="color: var(--text-color);">Trio Web Projects</a>, 
+    exploring ideas with friends.
+  </p>
+
+  <p>My strongest foundation is in C++, where I learned core programming concepts such as data structures & algorithms, pointers, and OOP — skills I’ve applied in projects like a 
+    <a href="https://github.com/KareemH-1/GameProject-CS102x" class="inline-link" style="color: var(--text-color);">terminal-based platformer</a>. 
+    I’ve also explored Unity with small games such as 
+    <a href="https://github.com/KareemH-1/GameDevelopment/tree/main/Unity/Pong3D" class="inline-link" style="color: var(--text-color);">Pong 3D</a> 
+    and 
+    <a href="https://github.com/KareemH-1/GameDevelopment/tree/main/Unity/SpaceGame" class="inline-link" style="color: var(--text-color);">Space Game</a>, 
+    and more recently began learning backend development through PHP.
+  </p>
+
+  <p>Outside of building projects, I sharpen my problem-solving skills through competitions like the ECPC and regular practice on 
+    <a href="https://codeforces.com/profile/KareemH" class="inline-link" style="color: var(--text-color);">Codeforces</a>.
+  </p>
+
+  <p>I aim to create software that blends creativity, usability, and technical precision — whether it’s a web interface, a game, or an algorithmic solution.</p>
+</div>
+
+
+
+    </section>
+        <section id="GitHub">
+        <div class="github-section">
+          <div class="stats-title">
+            <h3><span class="highlight">GitHub</span> Statistics</h3>
+            <p>A glimpse into my coding journey and contributions</p>
+          </div>
+          
+          <div class="github-stats-grid">
+            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="GitHub Stats" class="stat-card">
+            
+
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kareemH-1&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF" alt="Top Languages" class="stat-card">
+            
+
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=kareemH-1&theme=dark&hide_border=true&background=2A2A2A&ring=F8B400&fire=E63946&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=4ECDC4&sideNums=4ECDC4" alt="GitHub Streak" class="stat-card">
+            
+
+            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&show=commits,prs,issues,contributions&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="Commit Stats" class="stat-card">
+          </div>
+          
+        
+          <div class="contribution-graph">
+            <img src="https://github-readme-activity-graph.vercel.app/graph?username=kareemH-1&theme=github-compact&hide_border=true&area=true&bg_color=2A2A2A&color=FFFFFF&line=F8B400&point=E63946" alt="Contribution Graph" class="stat-card wide">
+          </div>
+        </div>
+      </section>
+
+      <section id="Skills">
+        <h2>My Skills</h2>
+        <p>Details about my skills.</p>
+      </section>
+
+      <section id="Projects">
+        <h2>My Projects</h2>
+        <p>Showcase of my projects.</p>
+      </section>
+
+      <section id="Contact">
+        <h2>Contact Me</h2>
+        <p>How to get in touch with me.</p>
+      </section>
+
+
+
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
