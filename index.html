@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
   </head>
   <body>
 
     <i data-lucide="X" id="menu-icon"></i>
-
+    <div class="custom-cursor"></div>
     <aside>
         <div class="circleShadow">
         <img src="assets/Picture.png" alt="Kareem Ahmed" />
@@ -27,7 +29,7 @@
           <a href="#Home">Home</a>
           <a href="#About">About</a>
           <a href="#GitHub">GitHub Statistics</a>
-          <a href="#Skills">Skills</a>
+          <a href="#Skills">Skills & Achievements</a>
         <a href="#Projects">Projects</a>
         <a href="#Contact">Contact</a>
         
@@ -40,6 +42,7 @@
     <main id="main-content">
 
     <section id="Home">
+        <div class="background"></div>
         <h2>Welcome to My Portfolio</h2>
         <p>Explore my projects and skills.</p>
         
@@ -56,7 +59,7 @@
         
         <div class="about-container">
 
-          <div class="personal-info-card">
+          <div class="personal-info-card invert">
             <div class="info-header">
               <div class="profile-image">
                 <img src="assets/Picture.png" alt="Kareem Ahmed">
@@ -82,7 +85,7 @@
               </div>
               <div class="detail-item">
                 <i data-lucide="code"></i>
-                <span>C++, Python , JavaScript , React , PHP</span>
+                <span>C++, Python, C#, JavaScript, React, PHP</span>
               </div>
               <div class="detail-item">
                 <i data-lucide="trophy"></i>
@@ -144,28 +147,194 @@
           </div>
           
           <div class="github-stats-grid">
-            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="GitHub Stats" class="stat-card">
+            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="GitHub Stats" class="stat-card invert">
             
 
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kareemH-1&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF" alt="Top Languages" class="stat-card">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kareemH-1&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF" alt="Top Languages" class="stat-card invert">
             
 
-            <img src="https://github-readme-streak-stats.herokuapp.com/?user=kareemH-1&theme=dark&hide_border=true&background=2A2A2A&ring=F8B400&fire=E63946&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=4ECDC4&sideNums=4ECDC4" alt="GitHub Streak" class="stat-card">
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=kareemH-1&theme=dark&hide_border=true&background=2A2A2A&ring=F8B400&fire=E63946&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=4ECDC4&sideNums=4ECDC4" alt="GitHub Streak" class="stat-card invert">
             
 
-            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&show=commits,prs,issues,contributions&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="Commit Stats" class="stat-card">
+            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&show=commits,prs,issues,contributions&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="Commit Stats" class="stat-card invert">
           </div>
           
         
           <div class="contribution-graph">
-            <img src="https://github-readme-activity-graph.vercel.app/graph?username=kareemH-1&theme=github-compact&hide_border=true&area=true&bg_color=2A2A2A&color=FFFFFF&line=F8B400&point=E63946" alt="Contribution Graph" class="stat-card wide">
+            <img src="https://github-readme-activity-graph.vercel.app/graph?username=kareemH-1&theme=github-compact&hide_border=true&area=true&bg_color=2A2A2A&color=FFFFFF&line=F8B400&point=E63946" alt="Contribution Graph" class="stat-card wide invert">
           </div>
         </div>
       </section>
 
       <section id="Skills">
-        <h2>My Skills</h2>
-        <p>Details about my skills.</p>
+        <h2>My <span class="highlight">Skills</span></h2>
+
+        <div id="Skill-filter">
+
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card invert Front-End Web-Development">
+                <i class="devicon-html5-plain skill-icon"></i>
+                <div class="skill-title">HTML</div>
+                <div class="skill-bar">
+                    <div class="skill-fill" style="width: 90%;"></div>
+                </div>
+                <div class="skill-level">Advanced</div>
+            </div>
+
+                <div class="skill-card invert Front-End Web-Development">
+                    <i class="devicon-css3-plain skill-icon"></i>
+                    <div class="skill-title">CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 85%;"></div>
+                    </div>
+                    <div class="skill-level">Advanced</div>
+                </div>
+
+                <div class="skill-card invert Front-End Web-Development">
+                    <i class="devicon-javascript-plain skill-icon"></i>
+                    <div class="skill-title">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 50%;"></div>
+                    </div>
+                    <div class="skill-level">Intermediate</div>
+                </div>
+
+                <div class="skill-card invert Front-End Web-Development">
+                    <i class="devicon-react-original skill-icon"></i>
+                    <div class="skill-title">React</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 20%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+
+                <div class="skill-card invert Front-End Web-Development">
+                    <i class="devicon-bootstrap-plain skill-icon"></i>
+                    <div class="skill-title">Bootstrap</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 40%;"></div>
+                    </div>
+                    <div class="skill-level">Intermediate</div>
+                </div>
+
+                <div class="skill-card invert Front-End Web-Development">
+                    <i class="devicon-tailwindcss-plain skill-icon"></i>
+                    <div class="skill-title">Tailwind CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 20%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+
+                <div class="skill-card invert Programming Game-Development">
+                    <i class="devicon-cplusplus-plain skill-icon"></i>
+                    <div class="skill-title">C++</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 70%;"></div>
+                    </div>
+                    <div class="skill-level">Intermediate</div>
+                </div>
+
+                <div class="skill-card invert Programming">
+                    <i class="devicon-csharp-plain skill-icon"></i>
+                    <div class="skill-title">C#</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 30%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+
+                <div class="skill-card invert Programming">
+                    <i class="devicon-python-plain skill-icon"></i>
+                    <div class="skill-title">Python</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 30%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+
+                <div class="skill-card invert Tools">
+                    <i class="devicon-git-plain skill-icon"></i>
+                    <div class="skill-title">Git/GitHub</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 95%;"></div>
+                    </div>
+                    <div class="skill-level">Advanced</div>
+                </div>
+
+                <div class="skill-card invert Tools Game-Development">
+                    <i class="devicon-unity-plain skill-icon"></i>
+                    <div class="skill-title">Unity</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 30%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+                
+                <div class="skill-card invert Web-Development Back-End">
+                    <i class="devicon-php-plain skill-icon"></i>
+                    <div class="skill-title">PHP</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 20%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+                
+                <div class="skill-card invert DataBase Back-End">
+                    <i class="devicon-mysql-plain skill-icon"></i>
+                    <div class="skill-title">SQL</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 25%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+
+                <div class="skill-card invert Other Tools">
+                    <i class="devicon-linux-plain skill-icon"></i>
+                    <div class="skill-title">Linux</div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 30%;"></div>
+                    </div>
+                    <div class="skill-level">Beginner</div>
+                </div>
+            </div>
+        </section>
+
+      <section id="Achievements">
+        <h2> <span class="highlight">My</span> Achievements</h2>
+
+        <div class="achievements-grid">
+          <div class="achievement-card invert">
+            <img src="assets/C++_DSA_Udemy.png" alt="C++ Data structure" class="achievement-image" onclick="openImage('assets/C++_DSA_Udemy.png')">
+            <h3>C++ Data Structures & Algorithms</h3>
+            <p>Udemy course certificate of completion for data structure and algorithm + LeetCode Exercises.</p>
+            <a href="assets/pdfs/C++_DSA_Udemy.pdf" target="_blank">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+          <div class="achievement-card invert">
+            <img src="assets/DataAnalysis_FreeCodeCamp.png" alt="Data Analysis" class="achievement-image" onclick="openImage('assets/DataAnalysis_FreeCodeCamp.png')">
+            <h3>Data Analysis with Python</h3>
+            <p>FreeCodeCamp course certificate of completion for data analysis with Python.</p>
+            <a href="assets/DataAnalysis_FreeCodeCamp.png" target="_blank">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+        </div>
+
+
+
+
       </section>
 
       <section id="Projects">

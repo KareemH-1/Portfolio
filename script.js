@@ -1,4 +1,82 @@
+//skills filter
 
+let skillCategory = ["All", "Front-End" , "Back-End" , "Web-Development", "Programming" , "DataBase" , "Tools" , "Game-Development" , "Other"];
+const skillFilter = document.getElementById("Skill-filter");
+
+skillCategory.forEach(category => {
+  const button = document.createElement("button");
+  button.textContent = category;
+  button.classList.add("skill-filter-button");
+  
+  if (category === "All") {
+    button.classList.add("skill-button-active");
+  }
+  
+  skillFilter.appendChild(button);
+});
+
+document.querySelectorAll('.skill-filter-button').forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    document.querySelectorAll('.skill-filter-button').forEach(btn => {
+      btn.classList.remove("skill-button-active");
+    });
+    
+    button.classList.add("skill-button-active");
+    
+    const selectedCategory = button.textContent;
+    filterSkills(selectedCategory);
+  });
+});
+
+filterSkills = (category) => {
+  const skillCards = document.querySelectorAll('.skill-card');
+  skillCards.forEach(card => {
+    if (category === "All" || card.classList.contains(category)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+};
+//----------------------------------------------------------------------------------
+
+//Inverted cursor
+const customCursor = document.querySelector('.custom-cursor');
+let isHoveringInvert = false;
+
+document.addEventListener('mousemove', function(e) {
+  if (customCursor) {
+    customCursor.style.left = e.pageX + 'px';
+    customCursor.style.top = e.pageY + 'px';
+  }
+});
+
+document.querySelectorAll('.invert').forEach(function(elem) {
+  elem.addEventListener('mouseenter', function() {
+    isHoveringInvert = true;
+    document.body.style.cursor = 'none';
+    if (customCursor) customCursor.style.display = 'block';
+  });
+  elem.addEventListener('mouseleave', function() {
+    isHoveringInvert = false;
+    document.body.style.cursor = '';
+    if (customCursor) customCursor.style.display = 'none';
+  });
+  elem.addEventListener('mousedown', function() {
+    elem.classList.add('active');
+    if (customCursor) customCursor.classList.add('active');
+  });
+  elem.addEventListener('mouseup', function() {
+    elem.classList.remove('active');
+    if (customCursor) customCursor.classList.remove('active');
+  });
+  elem.addEventListener('mouseleave', function() {
+    if (customCursor) customCursor.classList.remove('active');
+  });
+});
+
+//-------------------------Onload
 window.onload = () => {
     lucide.createIcons();
     const savedTheme = localStorage.getItem("theme");
@@ -120,7 +198,7 @@ updateGithubStats = (isLight) => {
 };
 
 
-
+//-----------------------------------------------------
 // Nav item highlight
 navItem = () => {
     const navItems = document.querySelectorAll('nav a');
@@ -144,4 +222,70 @@ navItem = () => {
 
     highlightNavItem();
     window.addEventListener('scroll', highlightNavItem);
+    
+    initializeSkillBars();
 }
+
+function initializeSkillBars() {
+    const skillFills = document.querySelectorAll('.skill-fill');
+    
+    skillFills.forEach(fill => {
+        const targetWidth = fill.style.width;
+        fill.style.setProperty('--target-width', targetWidth);
+        fill.style.width = '0%';
+        
+        // Trigger animation after a short delay
+        setTimeout(() => {
+            fill.style.width = targetWidth;
+        }, 100);
+    });
+
+}
+
+
+//-------------------------------------------------
+//open image popup
+function openImage(imageSrc) {
+
+    const container = document.createElement('div');
+    container.className = 'image-modal';
+    container.innerHTML = `
+        <div class="modal-overlay" onclick="closeImageModal()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <img src="${imageSrc}" alt="Certificate" class="modal-image">
+                <button class="modal-close" onclick="closeImageModal()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(container);
+
+    lucide.createIcons();
+    
+    document.body.style.overflow = 'hidden';
+    
+    setTimeout(() => {
+        container.classList.add('show');
+    }, 10);
+}
+
+function closeImageModal() {
+    const container = document.querySelector('.image-modal');
+    if (container) {
+        container.classList.remove('show');
+
+        setTimeout(() => {
+            container.remove();
+            document.body.style.overflow = '';
+        }, 300);
+    }
+}
+
+// Close the container with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeImageModal();
+    }
+});
