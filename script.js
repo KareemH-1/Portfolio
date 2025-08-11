@@ -1,3 +1,53 @@
+//my picture clicking easter egg
+
+let ct = 0;
+count = () =>{
+  ct++;
+  if(ct === 3){
+    alert("Would you stop clicking on me?");
+  }
+  else if( ct === 4){
+    alert("Really? I'm serious");  
+  }
+  else if( ct === 5){
+    alert("Last warning!");
+  }
+
+  else if (ct === 6){
+    alert("That's it! No more clicking!");
+    let img = document.querySelectorAll(".myPicture");
+    img.forEach(picture => {
+      picture.src = "";
+    });
+  }
+}
+
+//Project filter
+filterProjects = (category) => {
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  document.querySelectorAll('.project-filter-button').forEach(btn => {
+    btn.classList.remove("project-button-active");
+  });
+  
+  event.target.classList.add("project-button-active");
+  
+  projectCards.forEach(card => {
+    if (category === "All" || card.classList.contains(category)) {
+      card.style.display = 'flex';
+      card.style.animation = 'fadeIn 0.5s ease-in-out';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+};
+
+
+
+
+
+
+
 //skills filter
 
 let skillCategory = ["All", "Front-End" , "Back-End" , "Web-Development", "Programming" , "DataBase" , "Tools" , "Game-Development" , "Other"];
@@ -17,7 +67,6 @@ skillCategory.forEach(category => {
 
 document.querySelectorAll('.skill-filter-button').forEach(button => {
   button.addEventListener('click', () => {
-    // Remove active class from all buttons
     document.querySelectorAll('.skill-filter-button').forEach(btn => {
       btn.classList.remove("skill-button-active");
     });
@@ -205,19 +254,46 @@ navItem = () => {
     const sections = document.querySelectorAll('section');
 
     function highlightNavItem() {
-        const scrollPosition = window.scrollY + 150;
+        const scrollPosition = window.scrollY + 100;
+        let currentSection = null;
         
-        sections.forEach((section, index) => {
+        sections.forEach((section) => {
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
             
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                navItems.forEach(item => item.style.opacity = '0.6');
-                if (navItems[index]) {
-                    navItems[index].style.opacity = '1';
-                }
+                currentSection = section.id;
             }
         });
+        
+        navItems.forEach(item => item.style.opacity = '0.6');
+        
+        let navIndex = -1;
+        switch(currentSection) {
+            case 'Home':
+                navIndex = 0;
+                break;
+            case 'About':
+                navIndex = 1;
+                break;
+            case 'GitHub':
+                navIndex = 2;
+                break;
+            case 'Skills':
+            case 'Achievements':
+                navIndex = 3;
+                break;
+            case 'Projects':
+                navIndex = 4;
+                break;
+            case 'Contact':
+                navIndex = 5;
+                break;
+        }
+        
+        if (navIndex >= 0 && navItems[navIndex]) {
+            navItems[navIndex].style.opacity = '1';
+        }
     }
 
     highlightNavItem();
@@ -234,7 +310,6 @@ function initializeSkillBars() {
         fill.style.setProperty('--target-width', targetWidth);
         fill.style.width = '0%';
         
-        // Trigger animation after a short delay
         setTimeout(() => {
             fill.style.width = targetWidth;
         }, 100);

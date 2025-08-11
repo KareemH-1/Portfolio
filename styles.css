@@ -262,7 +262,7 @@ aside > nav > button {
 /*--------------------------------------------MAIN------------------------------------ */
 #main-content {
   margin-left: 25%;
-  padding: 40px;
+  padding: 40px 60px;
   min-height: 100vh;
   transition: margin-left 0.3s ease;
   width: 75%;
@@ -278,28 +278,29 @@ aside > nav > button {
 }
 
 #main-content section {
-  padding: 60px 0;
-  max-width: 1200px;
+  padding: 60px 40px;
+  max-width: 1000px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 #main-content h2 {
   color: var(--primary-color);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   display: inline-block;
   padding-bottom: 0.5rem;
 }
 
 #main-content p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
 }
 
-/*--------------------------------------Hero Section--------------------------------*/
 
+/*-------------------------------------------------------------------------*/
 #Home {
   background: linear-gradient(
     135deg,
@@ -402,14 +403,18 @@ aside > nav > button {
 
 .about-text {
   text-align: left;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .about-text p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 20px;
   color: var(--text-color);
   opacity: 0.9;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .personal-info-card {
@@ -590,9 +595,11 @@ aside > nav > button {
 .github-stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 20px;
   margin-bottom: 30px;
   align-items: center;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .stat-group {
@@ -603,6 +610,7 @@ aside > nav > button {
 
 .stat-card {
   width: 100%;
+  max-width: 100%;
   height: auto;
   min-height: 200px;
   border-radius: 15px;
@@ -610,6 +618,7 @@ aside > nav > button {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--border-color);
   object-fit: contain;
+  box-sizing: border-box;
 }
 
 .stat-card:hover {
@@ -687,17 +696,18 @@ aside > nav > button {
 }
 
 #Skills {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
-  margin-top: 40px;
-  padding: 0 20px;
+  margin: 40px auto 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .skill-card {
@@ -803,16 +813,17 @@ aside > nav > button {
   color: var(--secondary-color);
 }
 
+
 /*-------------------------------Achievements Section-------------------------------- */
 
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
   margin: 40px auto 0;
-  padding: 0 20px;
+  padding: 0;
   justify-items: center;
   box-sizing: border-box;
 }
@@ -821,6 +832,7 @@ aside > nav > button {
   background: var(--surface-color);
   border-radius: 15px;
   padding: 25px;
+  padding-bottom: 70px;
   box-shadow: 0 10px 30px var(--shadow-color);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
@@ -831,6 +843,7 @@ aside > nav > button {
   gap: 20px;
   max-width: 400px;
   width: 100%;
+  position: relative;
 }
 
 .achievement-card:hover {
@@ -875,7 +888,10 @@ aside > nav > button {
 }
 
 .achievement-card .btn {
-  margin-top: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   width: auto;
   min-width: 140px;
 }
@@ -897,6 +913,7 @@ aside > nav > button {
     max-width: 350px;
     width: 100%;
     padding: 20px;
+    padding-bottom: 65px;
     box-sizing: border-box;
   }
 
@@ -931,6 +948,132 @@ aside > nav > button {
   .achievement-card p {
     font-size: 0.9rem;
   }
+}
+
+/*-------------------------------Projects Section-------------------------------- */
+
+#project-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0 40px 0;
+}
+
+.project-filter-button {
+  padding: 10px 20px;
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  white-space: nowrap;
+}
+
+.project-filter-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.project-filter-button.project-button-active {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+}
+
+.light .project-filter-button:hover {
+  box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);
+}
+
+.light .project-filter-button.project-button-active {
+  box-shadow: 0 5px 15px rgba(5, 150, 105, 0.4);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 100%;
+  width: 100%;
+  margin: 40px auto 0;
+  padding: 0;
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+.project-card {
+  background: var(--surface-color);
+  border-radius: 15px;
+  padding: 25px;
+  padding-bottom: 70px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+
+.project-image {
+  width: 100%;
+  max-width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.project-card:hover .project-image {
+  border-color: var(--accent-color);
+  transform: scale(1.02);
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.project-card .btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 160px;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.project-card .btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 /*-------------------------------Image Modal-------------------------------- */
@@ -1084,6 +1227,44 @@ aside > nav > button {
   }
 }
 
+/* Responsive projects section */
+@media screen and (max-width: 768px) {
+  #project-category {
+    gap: 10px;
+    margin: 20px 0 30px 0;
+  }
+
+  .project-filter-button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 100%;
+    justify-items: center;
+    overflow-x: hidden;
+  }
+
+  .project-card {
+    max-width: 350px;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 65px;
+    box-sizing: border-box;
+  }
+
+  .project-image {
+    height: 180px;
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .skills-grid {
     grid-template-columns: 1fr;
@@ -1114,12 +1295,81 @@ aside > nav > button {
   .skill-bar {
     height: 6px;
   }
+
+  /* Projects mobile responsiveness */
+  #project-category {
+    gap: 8px;
+    margin: 15px 0 25px 0;
+    padding: 0 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project-filter-button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-width: auto;
+    white-space: nowrap;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+    justify-items: center;
+  }
+
+  .project-card {
+    max-width: 320px;
+    width: 100%;
+    padding: 18px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .project-image {
+    height: 160px;
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    margin: 15px 0 10px 0;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .project-buttons {
+    bottom: 15px;
+    right: 15px;
+    gap: 8px;
+  }
+
+  .project-btn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
 }
 
 /* Specific fix for Samsung S20 Ultra and similar (412px width) */
 @media screen and (max-width: 414px) {
   body, html {
     overflow-x: hidden !important;
+  }
+  
+  #menu-icon {
+    width: 3em !important;
+    height: 3em !important;
+    margin: 20px;
   }
   
   #main-content {
@@ -1144,6 +1394,7 @@ aside > nav > button {
     max-width: calc(100vw - 40px);
     width: 100%;
     padding: 15px;
+    padding-bottom: 60px;
     margin: 0;
   }
   
@@ -1172,6 +1423,22 @@ aside > nav > button {
 }
 
 /*---------------------------------------------------------------------------------------- */
+
+/* Large Desktop optimization */
+@media screen and (min-width: 1400px) {
+  #main-content {
+    padding: 40px 80px;
+  }
+  
+  #main-content section {
+    padding: 60px 60px;
+    max-width: 1100px;
+  }
+  
+  .github-stats-grid {
+    gap: 25px;
+  }
+}
 
 /* Height-based media query for short screens */
 @media screen and (max-height: 700px) {
@@ -1359,8 +1626,8 @@ aside > nav > button {
 
   #menu-icon {
     margin: 15px;
-    width: 1.8em;
-    height: 1.8em;
+    width: 2.2em;
+    height: 2.2em;
     top: 5px;
     left: 5px;
     border-radius: 8px;
@@ -1466,8 +1733,8 @@ aside > nav > button {
 
   #menu-icon {
     margin: 18px;
-    width: 1.9em;
-    height: 1.9em;
+    width: 2.3em;
+    height: 2.3em;
   }
 
   nav {
@@ -1583,5 +1850,208 @@ aside > nav > button {
   aside > .circleShadow > img {
     width: 120px;
     height: 120px;
+  }
+}
+
+/*-------------------------------Contact Section-------------------------------- */
+
+#Contact {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  position: relative;
+}
+
+#Contact h2 {
+  font-size: 2.8rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#Contact p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#Contact li {
+  background: var(--surface-color);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+#Contact li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+}
+
+#Contact li:hover::before {
+  transform: scaleY(1);
+}
+
+#Contact li:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-icon i {
+  width: 24px;
+  height: 24px;
+  color: white;
+  stroke-width: 2;
+}
+
+#Contact li:hover .contact-icon {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.contact-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.contact-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  word-break: break-all;
+}
+
+.contact-link:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+}
+
+/* Mobile responsive for contact section */
+@media screen and (max-width: 768px) {
+  #Contact {
+    padding: 60px 15px;
+  }
+
+  #Contact h2 {
+    font-size: 2.2rem;
+  }
+
+  #Contact p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+
+  #Contact ul {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  #Contact li {
+    padding: 25px;
+    gap: 15px;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .contact-icon i {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #Contact {
+    padding: 40px 10px;
+  }
+
+  #Contact h2 {
+    font-size: 1.9rem;
+  }
+
+  #Contact p {
+    font-size: 1rem;
+  }
+
+  #Contact li {
+    padding: 20px;
+    gap: 12px;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-icon i {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-label {
+    font-size: 1rem;
+  }
+
+  .contact-link {
+    font-size: 0.9rem;
   }
 }

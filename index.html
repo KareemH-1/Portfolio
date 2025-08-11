@@ -14,7 +14,7 @@
     <div class="custom-cursor"></div>
     <aside>
         <div class="circleShadow">
-        <img src="assets/Picture.png" alt="Kareem Ahmed" />
+        <img src="assets/Picture.png" class="myPicture" alt="Kareem Ahmed" onclick="count()" />
         </div>
         
         <div class="title">
@@ -42,7 +42,6 @@
     <main id="main-content">
 
     <section id="Home">
-        <div class="background"></div>
         <h2>Welcome to My Portfolio</h2>
         <p>Explore my projects and skills.</p>
         
@@ -62,7 +61,7 @@
           <div class="personal-info-card invert">
             <div class="info-header">
               <div class="profile-image">
-                <img src="assets/Picture.png" alt="Kareem Ahmed">
+                <img src="assets/Picture.png" class="myPicture" alt="Kareem Ahmed" onclick="count()">
               </div>
               <div class="basic-info">
                 <h3>Kareem Ahmed</h3>
@@ -147,21 +146,21 @@
           </div>
           
           <div class="github-stats-grid">
-            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="GitHub Stats" class="stat-card invert">
+            <img loading="lazy" src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="GitHub Stats" class="stat-card invert">
             
 
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kareemH-1&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF" alt="Top Languages" class="stat-card invert">
+            <img loading="lazy" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kareemH-1&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF" alt="Top Languages" class="stat-card invert">
             
 
-            <img src="https://github-readme-streak-stats.herokuapp.com/?user=kareemH-1&theme=dark&hide_border=true&background=2A2A2A&ring=F8B400&fire=E63946&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=4ECDC4&sideNums=4ECDC4" alt="GitHub Streak" class="stat-card invert">
+            <img loading="lazy" src="https://github-readme-streak-stats.herokuapp.com/?user=kareemH-1&theme=dark&hide_border=true&background=2A2A2A&ring=F8B400&fire=E63946&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=4ECDC4&sideNums=4ECDC4" alt="GitHub Streak" class="stat-card invert">
             
 
-            <img src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&show=commits,prs,issues,contributions&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="Commit Stats" class="stat-card invert">
+            <img loading="lazy" src="https://github-readme-stats.vercel.app/api?username=kareemH-1&show_icons=true&theme=dark&hide_border=true&count_private=true&show=commits,prs,issues,contributions&bg_color=2A2A2A&title_color=F8B400&text_color=FFFFFF&icon_color=E63946" alt="Commit Stats" class="stat-card invert">
           </div>
           
         
           <div class="contribution-graph">
-            <img src="https://github-readme-activity-graph.vercel.app/graph?username=kareemH-1&theme=github-compact&hide_border=true&area=true&bg_color=2A2A2A&color=FFFFFF&line=F8B400&point=E63946" alt="Contribution Graph" class="stat-card wide invert">
+            <img loading="lazy" src="https://github-readme-activity-graph.vercel.app/graph?username=kareemH-1&theme=github-compact&hide_border=true&area=true&bg_color=2A2A2A&color=FFFFFF&line=F8B400&point=E63946" alt="Contribution Graph" class="stat-card wide invert">
           </div>
         </div>
       </section>
@@ -238,7 +237,7 @@
                     <div class="skill-level">Intermediate</div>
                 </div>
 
-                <div class="skill-card invert Programming">
+                <div class="skill-card invert Programming Game-Development">
                     <i class="devicon-csharp-plain skill-icon"></i>
                     <div class="skill-title">C#</div>
                     <div class="skill-bar">
@@ -311,7 +310,7 @@
             <img src="assets/C++_DSA_Udemy.png" alt="C++ Data structure" class="achievement-image" onclick="openImage('assets/C++_DSA_Udemy.png')">
             <h3>C++ Data Structures & Algorithms</h3>
             <p>Udemy course certificate of completion for data structure and algorithm + LeetCode Exercises.</p>
-            <a href="assets/pdfs/C++_DSA_Udemy.pdf" target="_blank">
+            <a href="assets/pdfs/C++_DSA_Udemy.pdf" target="_blank" style="text-decoration: none;">
             <button class="btn btn-secondary">
               <i data-lucide="download"></i>
               <span>Download</span>
@@ -320,16 +319,118 @@
           </div>
 
           <div class="achievement-card invert">
-            <img src="assets/DataAnalysis_FreeCodeCamp.png" alt="Data Analysis" class="achievement-image" onclick="openImage('assets/DataAnalysis_FreeCodeCamp.png')">
+            <img src="assets/DataAnalysis_FreeCodeCamp.png" loading="lazy" alt="Data Analysis" class="achievement-image" onclick="openImage('assets/DataAnalysis_FreeCodeCamp.png')">
             <h3>Data Analysis with Python</h3>
             <p>FreeCodeCamp course certificate of completion for data analysis with Python.</p>
-            <a href="assets/DataAnalysis_FreeCodeCamp.png" target="_blank">
+            <a href="assets/DataAnalysis_FreeCodeCamp.png" target="_blank" style="text-decoration: none;">
             <button class="btn btn-secondary">
               <i data-lucide="download"></i>
               <span>Download</span>
             </button>
             </a>
           </div>
+
+          <div class="achievement-card invert">
+            <img src="assets/DataCamp_Intermediate_SQL.png" loading="lazy" alt="Data Analysis" class="achievement-image" onclick="openImage('assets/DataCamp_Intermediate_SQL.png')">
+            <h3>Intermediate SQL</h3>
+            <p>SQL course , part of DataCamp's SQL track</p>
+            <a href="assets/pdfs/DataCamp_Intermediate_SQL.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+          <div class="achievement-card invert">
+            <img src="assets/GitHub_Foundation_DataCamp.png" loading="lazy" alt="GitHub Foundations" class="achievement-image" onclick="openImage('assets/GitHub_Foundation_DataCamp.png')">
+            <h3>GitHub Foundations</h3>
+            <p>GitHub course, Git/GitHub complete track</p>
+            <a href="assets/pdfs/GitHub_Foundation_DataCamp.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+          <div class="achievement-card invert">
+            <img src="assets/2026-ECPC Q 3-Kareem Ahmed-PLACE.png" alt="ECPC Participation Certificate" loading="lazy" class="achievement-image" onclick="openImage('assets/2026-ECPC Q 3-Kareem Ahmed-PLACE.png')">
+            <h3>ECPC Participation Certificate</h3>
+            <p>Participation certificate for the ECPC competition August 2025.</p>
+            <a href="assets/pdfs/2026-ECPC Q 3-Kareem Ahmed-PLACE.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+          <div class="achievement-card invert">
+            <img src="assets/ITI_Ubuntu_Essentials.png" alt="ITI Ubuntu Essentials" loading="lazy" class="achievement-image" onclick="openImage('assets/ITI_Ubuntu_Essentials.png')">
+            <h3>Ubuntu Essentials</h3>
+            <p>Certificate for the ITI Ubuntu Essentials course.</p>
+            <a href="assets/pdfs/ITI_Ubuntu_Essentials.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+
+          <div class="achievement-card invert">
+            <img src="assets\MicrosoftFoundationsCSharp.png" alt="Microsoft Foundations C#" loading="lazy" class="achievement-image" onclick="openImage('assets/MicrosoftFoundationsCSharp.png')">
+            <h3>Microsoft Foundations C#</h3>
+            <p>Certificate of completion for the Microsoft/FreeCodeCamp Foundations C# course.</p>
+            <a href="assets\MicrosoftFoundationsCSharp.png" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+
+
+          <div class="achievement-card invert">
+            <img src="assets/ITI_Backend_PHP-SQL.png" alt="ITI Backend PHP-SQL" loading="lazy" class="achievement-image" onclick="openImage('assets/ITI_Backend_PHP-SQL.png')">
+            <h3>Backend PHP-SQL</h3>
+            <p>Certificate for the ITI Backend PHP-SQL course.</p>
+            <a href="assets/pdfs/ITI_Backend_PHP-SQL.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+
+          <div class="achievement-card invert">
+            <img src="assets/IBM_Intro_AI.png" alt="IBM Introduction to AI" loading="lazy" class="achievement-image" onclick="openImage('assets/IBM_Intro_AI.png')">
+            <h3>Introduction to AI</h3>
+            <p>Certificate for the IBM Introduction to AI course.</p>
+            <a href="assets/pdfs/IBM_Intro_AI.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
+
+          <div class="achievement-card invert">
+            <img src="assets/Cisco_Intro_CyberSecurity.png" alt="Cisco Introduction to Cyber Security" loading="lazy" class="achievement-image" onclick="openImage('assets/Cisco_Intro_CyberSecurity.png')">
+            <h3>Introduction to Cyber Security</h3>
+            <p>Certificate for the Cisco Introduction to Cyber Security course.</p>
+            <a href="assets/pdfs/Cisco_Intro_CyberSecurity.pdf" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+            </a>
+          </div>
+
         </div>
 
 
@@ -338,13 +439,167 @@
       </section>
 
       <section id="Projects">
-        <h2>My Projects</h2>
-        <p>Showcase of my projects.</p>
+        <h2>My <span class="highlight">Projects</span></h2>
+        <div id="project-category">
+          <button class="project-filter-button project-button-active" onclick="filterProjects('All')">All</button>
+          <button class="project-filter-button" onclick="filterProjects('Web-Projects')">Web Projects</button>
+          <button class="project-filter-button" onclick="filterProjects('Game-Development')">Game Development</button>
+          <button class="project-filter-button" onclick="filterProjects('Terminal-Based')">Terminal Based</button>
+          <button class="project-filter-button" onclick="filterProjects('AI')">AI</button>
+          <button class="project-filter-button" onclick="filterProjects('Other')">Other</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card invert Web-Projects">
+            <img src="assets/Projects/front-end-projects.png" alt="front-end-projects" class="project-image " onclick="openImage('assets/Projects/front-end-projects.png')">
+            <h3>Mini Front-end Projects</h3>
+            <p>A collection of small front-end projects built with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/KareemH-1/Front-end-projects" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+          <div class="project-card invert Web-Projects">
+            <img src="assets/Projects/FirstReactProject.png" alt="React Projects" class="project-image " onclick="openImage('assets/Projects/FirstReactProject.png')">
+            <h3>React Projects</h3>
+            <p>A small collection of React projects created mainly for learning react. The one in the photo was from a tutorial that I followed to get a better understanding of component-based architecture, and how React works.</p>
+            <a href="https://github.com/KareemH-1/React" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+          <div class="project-card invert Game-Development Terminal-Based">
+            <img src="assets/Projects/ASCII-Project.png" alt="ASCII C++ Game" class="project-image " onclick="openImage('assets/Projects/ASCII-Project.png')">
+            <h3>ASCII C++ Game</h3>
+            <p>A terminal-based game built with C++ as a part of college team project. It features ASCII art and a fully functional platformer game made without any game engines, just C++.</p>
+            <a href="https://github.com/KareemH-1/GameProject-CS102x" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+
+          <div class="project-card invert AI Terminal-Based">
+            <img src="assets/Projects/AI-MazeWayFinder.png" alt="AI Maze Way Finder" class="project-image " onclick="openImage('assets/Projects/AI-MazeWayFinder.png')">
+            <h3>AI Maze Way Finder</h3>
+            <p>A terminal-based AI project built with C++, it uses the Breadth First Search algorithm to find the shortest path from start to end of maze.</p>
+            <a href="https://github.com/KareemH-1/AI_MazeWayFinder" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+
+          <div class="project-card invert Game-Development">
+            <img src="assets/Projects/Pong3D.png" alt="Pong3D" class="project-image " onclick="openImage('assets/Projects/Pong3D.png')">
+            <h3>Pong3D</h3>
+            <p>A terminal-based Pong game built with Unity using C#. It features two paddles controlled by the players and a ball that bounces between them. I started this project by following a tutorial then expanded on it by adding new features and improving the gameplay.</p>
+            <a href="https://github.com/KareemH-1/GameDevelopment/tree/main/Unity/Pong3D" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+          <div class="project-card invert Game-Development">
+            <img src="assets/Projects/SpaceGame.png" alt="SpaceGame" class="project-image " onclick="openImage('assets/Projects/SpaceGame.png')">
+            <h3>SpaceGame</h3>
+            <p>A Simple space shooter game built with Unity using C#. It features a player-controlled spaceship that can move left and right, shooting bullets at incoming alien invaders.</p>
+            <a href="https://github.com/KareemH-1/GameDevelopment/tree/main/Unity/SpaceGame" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+
+          <div class="project-card invert Terminal-Based Other">
+            <img src="assets/Projects/C++MiniProjects.png" alt="C++ Mini Projects" class="project-image " onclick="openImage('assets/Projects/C++MiniProjects.png')">
+            <h3>C++ Mini Projects</h3>
+            <p>A collection of small projects built with C++ for learning purposes. Each project focuses on a specific concept.</p>
+            <a href="https://github.com/KareemH-1/Cpp-Projects/tree/main/Cpp-Basic-Codes" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+
+
+          <div class="project-card invert Web-Projects">
+            <img src="assets/Projects/WeatherApp.png" alt="Weather App" class="project-image " onclick="openImage('assets/Projects/WeatherApp.png')">
+            <h3>Weather App</h3>
+            <p>A responsive weather application built as a team collaboration project. Features real-time weather data, timezone integration, and dynamic background imagery using multiple APIs. Responsible for all JavaScript functionality, API integration, and some CSS alongside my teammate.</p>
+            <a href="https://github.com/KareemH-1/Trio_Web_Projects/tree/main/Weather%20App" style="text-decoration: none;" target="_blank">
+              <button class="btn btn-secondary">
+                <i data-lucide="github"></i>
+                <span>View on GitHub</span>
+              </button>
+            </a>
+          </div>
+
+
+
+
+        </div>
+        
       </section>
 
       <section id="Contact">
-        <h2>Contact Me</h2>
-        <p>How to get in touch with me.</p>
+        <h2><span class="highlight">Contact</span> Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn.</p>
+        <ul>
+          <li>
+            <div class="contact-icon">
+              <i data-lucide="mail"></i>
+            </div>
+            <div class="contact-content">
+              <div class="contact-label">Email</div>
+              <a href="mailto:kareem.a.hassan15@gmail.com" class="contact-link">kareem.a.hassan15@gmail.com</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <i data-lucide="linkedin"></i>
+            </div>
+            <div class="contact-content">
+              <div class="contact-label">LinkedIn</div>
+              <a href="https://www.linkedin.com/in/kareem-ahmed-4bbbb9376/" target="_blank" class="contact-link">linkedin.com/in/kareem-ahmed</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <i data-lucide="github"></i>
+            </div>
+            <div class="contact-content">
+              <div class="contact-label">GitHub</div>
+              <a href="https://github.com/KareemH-1" target="_blank" class="contact-link">github.com/KareemH-1</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <i data-lucide="phone"></i>
+            </div>
+            <div class="contact-content">
+              <div class="contact-label">Phone</div>
+              <a href="tel:+201211125898" class="contact-link">+20 1211125898</a>
+            </div>
+          </li>
+        </ul>
       </section>
 
 
