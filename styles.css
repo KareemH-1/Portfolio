@@ -233,6 +233,33 @@ nav a:focus::after {
   border-color: var(--primary-color);
 }
 
+#typewriter-name {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--primary-color);
+  animation: 
+    typing 2.5s steps(12, end) 0.5s both,
+    blink-name 0.75s step-end infinite 3s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-name {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary-color);
+  }
+}
+
 aside > nav > button {
   background: none;
   border: none;
@@ -832,7 +859,7 @@ aside > nav > button {
   background: var(--surface-color);
   border-radius: 15px;
   padding: 25px;
-  padding-bottom: 70px;
+  padding-bottom: 80px;
   box-shadow: 0 10px 30px var(--shadow-color);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
@@ -887,13 +914,22 @@ aside > nav > button {
   line-height: 1.5;
 }
 
-.achievement-card .btn {
+.achievement-card a {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  text-decoration: none;
+}
+
+.achievement-card .btn {
   width: auto;
   min-width: 140px;
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin-top: 0;
 }
 
 /* Responsive achievements section */
@@ -913,7 +949,7 @@ aside > nav > button {
     max-width: 350px;
     width: 100%;
     padding: 20px;
-    padding-bottom: 65px;
+    padding-bottom: 75px;
     box-sizing: border-box;
   }
 
@@ -933,6 +969,7 @@ aside > nav > button {
 
   .achievement-card {
     padding: 18px;
+    padding-bottom: 70px;
     gap: 15px;
   }
 
@@ -1296,7 +1333,6 @@ aside > nav > button {
     height: 6px;
   }
 
-  /* Projects mobile responsiveness */
   #project-category {
     gap: 8px;
     margin: 15px 0 25px 0;
@@ -1360,7 +1396,6 @@ aside > nav > button {
   }
 }
 
-/* Specific fix for Samsung S20 Ultra and similar (412px width) */
 @media screen and (max-width: 414px) {
   body, html {
     overflow-x: hidden !important;
@@ -2053,5 +2088,172 @@ aside > nav > button {
 
   .contact-link {
     font-size: 0.9rem;
+  }
+}
+
+.typewriter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  min-height: 40px;
+}
+
+.typewriter-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-right: 2px;
+}
+
+.cursor {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  animation: blink 0.8s infinite;
+  font-weight: bold;
+  opacity: 1;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  line-height: 1;
+  vertical-align: top;
+  margin-left: 2px;
+  -webkit-text-fill-color: var(--primary-color) !important;
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 40% {
+    opacity: 1;
+  }
+  41%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .typewriter-text {
+    font-size: 1.2rem;
+  }
+  
+  .cursor {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .typewriter-text {
+    font-size: 1rem;
+  }
+  
+  .cursor {
+    font-size: 1rem;
+  }
+  
+  .typewriter-container {
+    margin: 15px 0;
+    min-height: 30px;
+  }
+}
+
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 6s infinite ease-in-out;
+}
+
+.particle:nth-child(2n) {
+  background: var(--primary-color);
+  animation-duration: 8s;
+  animation-delay: -2s;
+}
+
+.particle:nth-child(3n) {
+  background: var(--secondary-muted);
+  animation-duration: 10s;
+  animation-delay: -4s;
+  width: 2px;
+  height: 2px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-20px) rotate(270deg);
+    opacity: 0.9;
+  }
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+.skill-card,
+.achievement-card,
+.project-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+  .particle {
+    width: 2px;
+    height: 2px;
+  }
+  
+  .particle:nth-child(3n) {
+    width: 1px;
+    height: 1px;
   }
 }

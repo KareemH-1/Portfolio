@@ -152,6 +152,10 @@ window.onload = () => {
     }
     
     navItem();
+    
+    initTypewriter();
+    createParticles();
+    init3DTilt();
 };
 
 
@@ -364,3 +368,107 @@ document.addEventListener('keydown', function(event) {
         closeImageModal();
     }
 });
+
+
+//change typewriter text
+function initTypewriter() {
+    const typewriterElement = document.getElementById('typewriter-text');
+    const cursor = document.querySelector('.cursor');
+    
+    if (!typewriterElement) return;
+    
+    const texts = [
+        "Front-End Developer", 
+        "Software Developer",
+        "Problem Solver",
+        "CS Student",
+        "Game Developer"
+    ];
+    
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function typeWriter() {
+        const currentText = texts[textIndex];
+        
+        if (!isDeleting) {
+            typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentText.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeWriter();
+                }, 2000);
+                return;
+            }
+        } else {
+            typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+        }
+        
+        const typingSpeed = isDeleting ? 50 : 100;
+        setTimeout(typeWriter, typingSpeed);
+    }
+    
+    setTimeout(() => {
+        typeWriter();
+    }, 1000);
+}
+
+
+//create particles
+function createParticles() {
+    const container = document.getElementById('particles-container');
+    const particleCount = window.innerWidth > 768 ? 50 : 25;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+        
+        container.appendChild(particle);
+    }
+}
+
+// 3D Card Tilt Effect
+// Inspired by: https://github.com/micku7zu/vanilla-tilt.js
+// Tutorial reference: https://www.youtube.com/watch?v=XK7T3mY1V-w 
+function init3DTilt() {
+    const cards = document.querySelectorAll('.skill-card, .achievement-card, .project-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', handleTilt);
+        card.addEventListener('mouseleave', resetTilt);
+    });
+}
+
+function handleTilt(e) {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / centerY * -10;
+    const rotateY = (x - centerX) / centerX * 10;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+}
+
+function resetTilt(e) {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+}
