@@ -96,8 +96,9 @@ let isHoveringInvert = false;
 
 document.addEventListener('mousemove', function(e) {
   if (customCursor) {
-    customCursor.style.left = e.clientX + 'px';
-    customCursor.style.top = e.clientY + 'px';
+    customCursor.style.left = e.pageX + 'px';
+    customCursor.style.top = e.pageY + 'px';
+
   }
 });
 
