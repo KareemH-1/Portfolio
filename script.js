@@ -156,6 +156,7 @@ window.onload = () => {
     initTypewriter();
     createParticles();
     init3DTilt();
+    initInteractiveSidebar();
 };
 
 
@@ -426,7 +427,7 @@ function initTypewriter() {
 //create particles
 function createParticles() {
     const container = document.getElementById('particles-container');
-    const particleCount = window.innerWidth > 768 ? 50 : 25;
+    const particleCount = window.innerWidth > 768 ? 30 : 15;
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -473,6 +474,72 @@ function resetTilt(e) {
     const card = e.currentTarget;
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
 }
+
+// SideBar 
+function initInteractiveSidebar() {
+    const sidebarItems = document.querySelectorAll('.sidebar-item[data-section]');
+    const sections = document.querySelectorAll('section');
+    
+    sidebarItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const section = item.dataset.section;
+            const targetElement = document.getElementById(section);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    function updateActiveState() {
+        if (!document.body.classList.contains('aside-hidden')) return;
+        
+        const scrollPosition = window.scrollY + 100;
+        let currentSection = null;
+        
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                currentSection = section.id;
+            }
+        });
+        
+        sidebarItems.forEach(item => {
+            item.classList.remove('active');
+            const itemSection = item.dataset.section;
+            if (itemSection === currentSection) {
+                item.classList.add('active');
+            } else if (itemSection === 'Skills' && currentSection === 'Achievements') {
+                item.classList.add('active');
+            }
+        });
+    }
+    
+    function updateSidebarThemeIcon() {
+        const sidebarThemeIcon = document.getElementById('sidebar-theme-icon');
+        if (sidebarThemeIcon) {
+            const isLight = document.body.classList.contains('light');
+            sidebarThemeIcon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
+            lucide.createIcons();
+        }
+    }
+    
+    window.addEventListener('scroll', updateActiveState);
+    
+    const observer = new MutationObserver(() => {
+        updateSidebarThemeIcon();
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    
+    updateActiveState();
+    updateSidebarThemeIcon();
+}
+
 //Scroll to top button
 function scrollToTop() {
     window.scrollTo({ top: 0 });
