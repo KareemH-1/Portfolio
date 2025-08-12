@@ -40,7 +40,6 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) var(--surface-color);
 }
 
 html, body {
@@ -2257,29 +2256,6 @@ aside > nav > button {
   transition: transform 0.1s ease-out;
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--surface-color);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 10px;
-  border: 2px solid var(--surface-color);
-  transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-color);
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: var(--accent-color);
-}
 
 .main-footer {
   background: transparent;
