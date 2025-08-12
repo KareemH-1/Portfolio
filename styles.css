@@ -52,7 +52,7 @@ html, body {
 
 .custom-cursor {
   display: none;
-  position: absolute;
+  position: fixed;
   width: 40px;
   height: 40px;
   background: var(--text-color);
@@ -2220,7 +2220,7 @@ aside > nav > button {
 }
 
 .particle:nth-child(3n) {
-  background: var(--secondary-muted);
+  background: var(--secondary-color);
   animation-duration: 10s;
   animation-delay: -4s;
 }
