@@ -208,7 +208,6 @@ toggleTheme = () => {
 //change card colors depending on the theme
 updateGithubStats = (isLight) => {
   const username = "kareemH-1";
-  
   const colors = isLight ? {
     bg_color: "FFFFFF",
     title_color: "2563EB", 
@@ -236,16 +235,24 @@ updateGithubStats = (isLight) => {
   const githubStatsCards = document.querySelectorAll('.github-stats-grid .stat-card');
   
   // GitHub Stats
-  githubStatsCards[0].src = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}`;
+  if (githubStatsCards[0]) {
+    githubStatsCards[0].src = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}`;
+  }
   
   // Top Languages
-  githubStatsCards[1].src = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}`;
+  if (githubStatsCards[1]) {
+    githubStatsCards[1].src = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}`;
+  }
   
   // GitHub Streak
-  githubStatsCards[2].src = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&hide_border=true&background=${colors.bg_color}&ring=${colors.ring}&fire=${colors.fire}&currStreakLabel=${colors.currStreakLabel}&sideLabels=${colors.sideLabels}&currStreakNum=${colors.currStreakNum}&sideNums=${colors.sideNums}`;
+  if (githubStatsCards[2]) {
+    githubStatsCards[2].src = `https://streak-stats.demolab.com/?user=${username}&theme=dark&hide_border=true&background=${colors.bg_color}&ring=${colors.title_color}&fire=${colors.icon_color}&currStreakLabel=${colors.text_color}&sideLabels=${colors.text_color}&currStreakNum=${colors.currStreakNum}&sideNums=${colors.sideNums}`;
+  }
   
-  // Commit Stats
-  githubStatsCards[3].src = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&hide_border=true&count_private=true&show=commits,prs,issues,contributions&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}`;
+  // Profile Summary Card
+  if (githubStatsCards[3]) {
+    githubStatsCards[3].src = `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=transparent&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}&hide_border=true`;
+  }
   //contributions
   const contributionGraph = document.querySelector('.contribution-graph .stat-card');
   contributionGraph.src = `https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=github-compact&hide_border=true&area=true&bg_color=${colors.bg_color}&color=${colors.text_color}&line=${colors.title_color}&point=${colors.icon_color}`;

@@ -635,36 +635,35 @@ aside > nav > button {
 
 .github-stats-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
   margin-bottom: 30px;
-  align-items: center;
+  padding-top: 15px;
+  align-items: stretch;
   max-width: 100%;
   overflow-x: hidden;
+}
+
+.stat-card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  object-fit: contain;
+  background: var(--surface-color);
+  padding: 5px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow-color);
 }
 
 .stat-group {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.stat-card {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  min-height: 200px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px var(--shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--border-color);
-  object-fit: contain;
-  box-sizing: border-box;
-}
-
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px var(--shadow-color);
 }
 
 .stat-card.large {
@@ -747,7 +746,7 @@ aside > nav > button {
   max-width: 100%;
   width: 100%;
   margin: 40px auto 0;
-  padding: 0;
+  padding: 15px 0 0 0;
   box-sizing: border-box;
 }
 
@@ -864,7 +863,7 @@ aside > nav > button {
   max-width: 100%;
   width: 100%;
   margin: 40px auto 0;
-  padding: 0;
+  padding: 15px 0 0 0;
   justify-items: center;
   box-sizing: border-box;
 }
@@ -1051,7 +1050,7 @@ aside > nav > button {
   max-width: 100%;
   width: 100%;
   margin: 40px auto 0;
-  padding: 0;
+  padding: 15px 0 0 0;
   justify-items: center;
   box-sizing: border-box;
 }
@@ -1818,6 +1817,7 @@ aside > nav > button {
 
   .github-stats-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 }
 
