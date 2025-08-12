@@ -431,7 +431,8 @@ function createParticles() {
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-        
+        particle.style.width = window.innerWidth > 768 ? `${Math.random() * 5 + 2}px` : `${Math.random() * 4 + 1}px`;
+        particle.style.height = particle.style.width;
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
         particle.style.animationDelay = Math.random() * 6 + 's';
@@ -471,4 +472,8 @@ function handleTilt(e) {
 function resetTilt(e) {
     const card = e.currentTarget;
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+}
+//Scroll to top button
+function scrollToTop() {
+    window.scrollTo({ top: 0 });
 }

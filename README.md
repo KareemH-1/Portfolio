@@ -1,26 +1,37 @@
-# My Portfolio
+# Kareem Ahmed - Portfolio
 
-This is my personal portfolio website, built entirely with **HTML**, **CSS**, and **JavaScript**.  
-It showcases my skills, projects, and a bit about me — along with a few interactive features.
+A simple personal portfolio website showcasing my projects, skills, and experience as a Computer Science student.
 
 🔗 **Live site:** [https://kareemh-1.github.io/Portfolio/](https://kareemh-1.github.io/Portfolio/)
 
 ---
 
-## What's Inside
+## Features
 
-- **Responsive design** for desktop and mobile
-- **Theme toggle** (light/dark mode)
-- **Lucide icons** for clean, consistent visuals
-- **Sidebar navigation** with toggle button
-- **GitHub stats** section to show my contributions and activity
-- About, Skills, Projects, and Contact sections
+- **Responsive design** that works on desktop and mobile
+- **Dark/Light theme toggle** with saved preference
+- **Interactive sidebar** that can be collapsed on mobile
+- **Project filtering** by category
+- **Skills section** with category filters
+- **GitHub stats integration** showing my activity
+- **Achievement certificates** with click-to-view
+- **Contact information** with direct links
 
 ---
 
-## Tech Used
+## Built With
 
-- **HTML** – Structure
-- **CSS** – Styling, responsive layout, and theming
-- **JavaScript** – Sidebar toggle, theme switch, and dynamic features
-- **Lucide** – Icon set
+- **HTML5** - Structure and content
+- **CSS3** - Styling and responsive layout
+- **JavaScript** - Interactive features and theme switching
+- **Lucide Icons** - Icon library
+- **GitHub APIs** - For live stats display
+
+---
+
+## Contact
+
+- 📧 Email: kareem.a.hassan15@gmail.com
+- 🔗 LinkedIn: [kareem-ahmed-4bbbb9376](https://www.linkedin.com/in/kareem-ahmed-4bbbb9376/)
+- 💻 GitHub: [KareemH-1](https://github.com/KareemH-1)
+- 📱 Phone: +20 1211125898
