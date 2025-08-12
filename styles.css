@@ -55,7 +55,7 @@ html, body {
   position: fixed;
   width: 40px;
   height: 40px;
-  background: var(--text-color);
+  background: #ffffff;
   border-radius: 50%;
   pointer-events: none;
   mix-blend-mode: difference;
