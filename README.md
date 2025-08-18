@@ -43,7 +43,8 @@
 ```
 Frontend:     HTML, CSS, JavaScript
 Icons:        Lucide Icons, DevIcons
-APIs:         GitHub Stats APIs
+APIs:         GitHub Stats APIs  
+Visitor Counter: [Free Visitor Counter](https://www.freevisitorcounters.com/)
 Features:     Responsive Design, Theme Toggle, Local Storage
 ```
 
