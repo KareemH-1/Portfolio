@@ -48,19 +48,6 @@ html, body {
   max-width: 100vw;
 }
 
-a[href="https://www.free-counters.org/"] {
-  display: none !important;
-}
-
-
-a[href="https://www.free-counters.org/stats/ifqw"] svg {
-  display: block;
-  margin: 0 auto;
-    color: var(--text-color, #fff);
-  max-width: 100px;
-  height: auto;
-}
-
 .custom-cursor {
   display: none;
   position: absolute;
@@ -2720,4 +2707,27 @@ body.aside-hidden .interactive-sidebar {
   background: var(--border-color);
   margin: 4px 8px;
   opacity: 0.5;
+}
+
+a[href*="free-counters.org"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-color, #222);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 6px 12px;
+  margin: 10px auto;
+  transition: box-shadow 0.2s, background 0.2s;
+  border: 1px solid var(--border-color, #444);
+  text-decoration: none !important;
+  width: fit-content;
+}
+
+a[href*="free-counters.org"] svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+  height: auto;
 }
