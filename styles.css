@@ -3,6 +3,9 @@
   --primary-color-rgb: 248, 180, 0;
   --secondary-color: #e63946;
   --accent-color: #4ecdc4;
+
+  --gameHub-btn: #7c3aed;
+  
   --accent-color-rgb: 78, 205, 196;
 
   --background-color: #1b1b1b;
@@ -23,6 +26,8 @@
   --secondary-color: #7c3aed;
   --accent-color: #059669;
   --accent-color-rgb: 5, 150, 105;
+
+  --gameHub-btn: #f8b400;
 
   --background-color: #f7f7f7;
   --surface-color: #ffffff;
@@ -624,6 +629,15 @@ aside > nav > button {
   background: var(--secondary-color);
   transform: translateY(-2px);
 }
+
+.btn-gamehub {
+  border: 2px solid var(--gameHub-btn);
+}
+.btn-gamehub:hover {
+  background: var(--gameHub-btn);
+  transform: translateY(-2px);
+}
+
 
 .github-section {
   margin-top: 60px;
@@ -2389,6 +2403,16 @@ body.aside-hidden .main-footer {
 .social-link.linkedin:hover {
   color: #0077b5;
   box-shadow: 0 0 15px rgba(0, 119, 181, 0.3);
+}
+
+.social-link.gamehub {
+  color: #4ecdc4;
+}
+.social-link.gamehub:hover {
+  color: #1b1b1b;
+  background: #4ecdc4;
+  box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+}
 }
 
 .social-link.email:hover {
