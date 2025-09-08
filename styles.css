@@ -1661,7 +1661,6 @@ aside > nav > button {
   }
 }
 
-/* Extra Small Devices (Phones < 480px) */
 @media screen and (max-width: 479px) {
   body {
     font-size: 14px;
@@ -1790,7 +1789,6 @@ aside > nav > button {
   }
 }
 
-/* Small Devices (Phones, 480px – 767px) */
 @media screen and (min-width: 480px) and (max-width: 767px) {
   #main-content {
     margin-left: 0;
@@ -1849,7 +1847,6 @@ aside > nav > button {
   }
 }
 
-/* Medium Devices (Tablets, 768px – 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   #main-content {
     margin-left: 50%;
@@ -1872,7 +1869,6 @@ aside > nav > button {
   }
 }
 
-/* Large Devices (Small Laptops, 992px – 1199px) */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   #main-content {
     margin-left: 35%;
@@ -1887,7 +1883,6 @@ aside > nav > button {
   }
 }
 
-/* Extra Large Devices (Desktops, 1200px – 1599px) */
 @media screen and (min-width: 1200px) and (max-width: 1599px) {
   #main-content {
     margin-left: 28%;
@@ -1902,7 +1897,6 @@ aside > nav > button {
   }
 }
 
-/* Ultra-Wide Screens (≥1600px) */
 @media screen and (min-width: 1600px) {
   body {
     font-size: 18px;
@@ -2056,9 +2050,9 @@ aside > nav > button {
 .contact-link:hover {
   color: var(--accent-color);
   transform: translateX(5px);
+
 }
 
-/* Mobile responsive for contact section */
 @media screen and (max-width: 768px) {
   #Contact {
     padding: 60px 15px;
@@ -2130,6 +2124,18 @@ aside > nav > button {
 
   .contact-link {
     font-size: 0.9rem;
+  }
+}
+
+
+@media (min-width: 768px) {
+  #Contact ul li:last-child {
+    grid-column: 1 / -1;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    max-width: 600px;
+    justify-content: center;
   }
 }
 
@@ -2405,15 +2411,13 @@ body.aside-hidden .main-footer {
   box-shadow: 0 0 15px rgba(0, 119, 181, 0.3);
 }
 
-.social-link.gamehub {
-  color: #4ecdc4;
-}
+
 .social-link.gamehub:hover {
   color: #1b1b1b;
   background: #4ecdc4;
   box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
 }
-}
+
 
 .social-link.email:hover {
   color: var(--primary-color);
