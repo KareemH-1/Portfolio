@@ -387,7 +387,7 @@ function initTypewriter() {
     if (!typewriterElement) return;
     
     const texts = [
-        "Front-End Developer", 
+        "Web Developer", 
         "Software Developer",
         "Problem Solver",
         "CS Student",
