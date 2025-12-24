@@ -1,7 +1,9 @@
-//my picture clicking easter egg
+import { skills, achievements, projects, loadSkills, loadAchievements, loadProjects } from './loadData.js';
+import { addPagination } from './addPagination.js';
 
+//my picture clicking easter egg
 let ct = 0;
-count = () =>{
+const count = () =>{
   ct++;
   if(ct === 3){
     alert("Would you stop clicking on me?");
@@ -12,7 +14,6 @@ count = () =>{
   else if( ct === 5){
     alert("Last warning!");
   }
-
   else if (ct === 6){
     alert("That's it! No more clicking!");
     let img = document.querySelectorAll(".myPicture");
@@ -22,15 +23,9 @@ count = () =>{
   }
 }
 
-//Project filter
-filterProjects = (category) => {
+let skillsPagination, achievementsPagination, projectsPagination;
+const filterProjects = (category) => {
   const projectCards = document.querySelectorAll('.project-card');
-  
-  document.querySelectorAll('.project-filter-button').forEach(btn => {
-    btn.classList.remove("project-button-active");
-  });
-  
-  event.target.classList.add("project-button-active");
   
   projectCards.forEach(card => {
     if (category === "All" || card.classList.contains(category)) {
@@ -40,45 +35,12 @@ filterProjects = (category) => {
       card.style.display = 'none';
     }
   });
+   projectsPagination.updateFilter(project => 
+      category === "All" || project.categories.includes(category)
+  );
 };
 
-
-
-
-
-
-
-//skills filter
-
-let skillCategory = ["All", "Front-End" , "Back-End" , "Web-Development", "Programming" , "DataBase" , "Tools" , "Game-Development" , "Other"];
-const skillFilter = document.getElementById("Skill-filter");
-
-skillCategory.forEach(category => {
-  const button = document.createElement("button");
-  button.textContent = category;
-  button.classList.add("skill-filter-button");
-  
-  if (category === "All") {
-    button.classList.add("skill-button-active");
-  }
-  
-  skillFilter.appendChild(button);
-});
-
-document.querySelectorAll('.skill-filter-button').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('.skill-filter-button').forEach(btn => {
-      btn.classList.remove("skill-button-active");
-    });
-    
-    button.classList.add("skill-button-active");
-    
-    const selectedCategory = button.textContent;
-    filterSkills(selectedCategory);
-  });
-});
-
-filterSkills = (category) => {
+const filterSkills = (category) => {
   const skillCards = document.querySelectorAll('.skill-card');
   skillCards.forEach(card => {
     if (category === "All" || card.classList.contains(category)) {
@@ -87,78 +49,216 @@ filterSkills = (category) => {
       card.style.display = 'none';
     }
   });
+  skillsPagination.updateFilter(skill => 
+      category === "All" || skill.categories.includes(category)
+  );
 };
-//----------------------------------------------------------------------------------
 
-//Inverted cursor
-const customCursor = document.querySelector('.custom-cursor');
-let isHoveringInvert = false;
+window.count = count;
+window.filterProjects = filterProjects;
+window.filterSkills = filterSkills;
 
-document.addEventListener('mousemove', function(e) {
-  if (customCursor) {
-    customCursor.style.left = e.pageX + 'px';
-    customCursor.style.top = e.pageY + 'px';
+function initializeFilters() {
+  let projectCategory = ["All"];
+  projects.forEach(project => {
+    project.categories.forEach(category => {
+      if (!projectCategory.includes(category)) {
+        projectCategory.push(category);
+      }
+    });
+  });
 
+  const projectFilter = document.getElementById("project-category");
+  if (projectFilter) {
+    projectCategory.forEach(category => {
+      const button = document.createElement("button");
+      button.textContent = category === "All" ? "All" : category.replace("-", " ");
+      button.classList.add("project-filter-button");
+      
+      if (category === "All") {
+        button.classList.add("project-button-active");
+      }
+      
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.project-filter-button').forEach(btn => {
+          btn.classList.remove("project-button-active");
+        });
+        
+        button.classList.add("project-button-active");
+        filterProjects(category);
+      });
+      
+      projectFilter.appendChild(button);
+    });
   }
-});
 
-document.querySelectorAll('.invert').forEach(function(elem) {
-  elem.addEventListener('mouseenter', function() {
-    isHoveringInvert = true;
-    document.body.style.cursor = 'none';
-    if (customCursor) customCursor.style.display = 'block';
+  let skillCategory = ["All"];
+  skills.forEach(skill => {
+    skill.categories.forEach(category => {
+      if (!skillCategory.includes(category)) {
+        skillCategory.push(category);
+      }
+    });
   });
-  elem.addEventListener('mouseleave', function() {
-    isHoveringInvert = false;
-    document.body.style.cursor = '';
-    if (customCursor) customCursor.style.display = 'none';
+
+  const skillFilter = document.getElementById("Skill-filter");
+  if (skillFilter) {
+    skillCategory.forEach(category => {
+      const button = document.createElement("button");
+      button.textContent = category;
+      button.classList.add("skill-filter-button");
+      
+      if (category === "All") {
+        button.classList.add("skill-button-active");
+      }
+      
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.skill-filter-button').forEach(btn => {
+          btn.classList.remove("skill-button-active");
+        });
+        
+        button.classList.add("skill-button-active");
+        filterSkills(category);
+      });
+      
+      skillFilter.appendChild(button);
+    });
+  }
+}
+
+//Inverted cursor - initialize after DOM loaded
+function initializeCursor() {
+  const customCursor = document.querySelector('.custom-cursor');
+  
+  document.addEventListener('mousemove', function(e) {
+    if (customCursor) {
+      customCursor.style.left = e.pageX + 'px';
+      customCursor.style.top = e.pageY + 'px';
+    }
   });
-  elem.addEventListener('mousedown', function() {
-    elem.classList.add('active');
-    if (customCursor) customCursor.classList.add('active');
+
+  document.querySelectorAll('.invert').forEach(function(elem) {
+    elem.addEventListener('mouseenter', function() {
+      document.body.style.cursor = 'none';
+      if (customCursor) customCursor.style.display = 'block';
+    });
+    elem.addEventListener('mouseleave', function() {
+      document.body.style.cursor = '';
+      if (customCursor) customCursor.style.display = 'none';
+    });
+    elem.addEventListener('mousedown', function() {
+      elem.classList.add('active');
+      if (customCursor) customCursor.classList.add('active');
+    });
+    elem.addEventListener('mouseup', function() {
+      elem.classList.remove('active');
+      if (customCursor) customCursor.classList.remove('active');
+    });
+    elem.addEventListener('mouseleave', function() {
+      if (customCursor) customCursor.classList.remove('active');
+    });
   });
-  elem.addEventListener('mouseup', function() {
-    elem.classList.remove('active');
-    if (customCursor) customCursor.classList.remove('active');
-  });
-  elem.addEventListener('mouseleave', function() {
-    if (customCursor) customCursor.classList.remove('active');
-  });
-});
+}
 
 //-------------------------Onload
 window.onload = () => {
     lucide.createIcons();
     const savedTheme = localStorage.getItem("theme");
     const isLight = savedTheme === "light";
-    
     if (savedTheme) {
-        document.body.classList.toggle("light", isLight);
-        themeToggleIcon = document.getElementById("theme-toggle");
-        themeToggleIcon.setAttribute("data-lucide", isLight ? "sun" : "moon");
-        
-        updateGithubStats(isLight);
+      document.body.classList.toggle("light", isLight);
+      const themeToggleIcon = document.getElementById("theme-toggle");
+      themeToggleIcon.setAttribute("data-lucide", isLight ? "sun" : "moon");
+      updateGithubStats(isLight);
     }
-    
     const asideHidden = localStorage.getItem("aside-hidden") === "true";
     if (asideHidden) {
-        asideElement = document.querySelector("aside");
-        asideElement.classList.add("hidden");
-        document.body.classList.add("aside-hidden");
-        const menuButton = document.getElementById("menu-icon");
-        if (menuButton) {
-            menuButton.setAttribute("data-lucide", "menu");
-            lucide.createIcons();
-        }
+      const asideElement = document.querySelector("aside");
+      asideElement.classList.add("hidden");
+      document.body.classList.add("aside-hidden");
+      const menuButton = document.getElementById("menu-icon");
+      if (menuButton) {
+        menuButton.setAttribute("data-lucide", "menu");
+        lucide.createIcons();
+      }
     }
-    
+    skillsPagination = addPagination({
+      containerSelector: '.skills-grid',
+      itemSelector: '.skill-card',
+      items: skills,
+      itemsPerPage: 15,
+      renderItem: skill => {
+        const skillElement = document.createElement('div');
+        skillElement.classList.add('skill-card', 'invert');
+        skill.categories.forEach(category => skillElement.classList.add(category));
+        skillElement.innerHTML = `
+          <i class="${skill.icon} skill-icon"></i>
+          <div class="skill-title">${skill.skill}</div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: ${skill['experience-bar']}%;"></div>
+          </div>
+          <div class="skill-level">${skill.level}</div>
+        `;
+        return skillElement;
+      }
+    });
+
+    achievementsPagination = addPagination({
+      containerSelector: '.achievements-grid',
+      itemSelector: '.achievement-card',
+      items: achievements,
+      itemsPerPage: 9,
+      renderItem: achievement => {
+        const achievementElement = document.createElement('div');
+        achievementElement.classList.add('achievement-card', 'invert');
+        achievementElement.innerHTML = `
+          <img src="${achievement.img}" alt="${achievement.name}" loading="lazy" class="achievement-image" onclick="openImage('${achievement.img}')">
+          <h3>${achievement.name}</h3>
+          <p>${achievement.description}</p>
+          <a href="${achievement.pdf}" target="_blank" style="text-decoration: none;">
+            <button class="btn btn-secondary">
+              <i data-lucide="download"></i>
+              <span>Download</span>
+            </button>
+          </a>
+        `;
+        return achievementElement;
+      }
+    });
+
+    projectsPagination = addPagination({
+      containerSelector: '.projects-grid',
+      itemSelector: '.project-card',
+      items: projects,
+      itemsPerPage: 9,
+      renderItem: project => {
+        const projectElement = document.createElement('div');
+        projectElement.classList.add('project-card', 'invert');
+        project.categories.forEach(category => projectElement.classList.add(category));
+        const icon = project.linkType === 'github' ? 'github' : 'gamepad-2';
+        const buttonText = project.linkType === 'github' ? 'View on GitHub' : 'Play Game';
+        projectElement.innerHTML = `
+          <img src="${project.img}" alt="${project.name}" class="project-image" onclick="openImage('${project.img}')">
+          <h3>${project.name}</h3>
+          <p>${project.description}</p>
+          <a href="${project.link}" style="text-decoration: none;" target="_blank">
+            <button class="btn btn-secondary">
+              <i data-lucide="${icon}"></i>
+              <span>${buttonText}</span>
+            </button>
+          </a>
+        `;
+        return projectElement;
+      }
+    });
     navItem();
-    
     initTypewriter();
     createParticles();
     init3DTilt();
     initInteractiveSidebar();
-};
+    initializeFilters();
+    initializeCursor();
+  };
 
 
 //Aside toggle
@@ -186,7 +286,7 @@ document.body.addEventListener("click", (e) => {
 
 
 //Theme toggle
-toggleTheme = () => {
+const toggleTheme = () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
   
@@ -206,8 +306,10 @@ toggleTheme = () => {
   lucide.createIcons();
 };
 
+window.toggleTheme = toggleTheme;
+
 //change card colors depending on the theme
-updateGithubStats = (isLight) => {
+const updateGithubStats = (isLight) => {
   const username = "kareemH-1";
   const colors = isLight ? {
     bg_color: "FFFFFF",
@@ -258,11 +360,12 @@ updateGithubStats = (isLight) => {
   const contributionGraph = document.querySelector('.contribution-graph .stat-card');
   contributionGraph.src = `https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=github-compact&hide_border=true&area=true&bg_color=${colors.bg_color}&color=${colors.text_color}&line=${colors.title_color}&point=${colors.icon_color}`;
 };
+window.updateGithubStats = updateGithubStats;
 
 
 //-----------------------------------------------------
 // Nav item highlight
-navItem = () => {
+const navItem = () => {
     const navItems = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('section');
 
@@ -314,6 +417,7 @@ navItem = () => {
     
     initializeSkillBars();
 }
+window.navItem = navItem;
 
 function initializeSkillBars() {
     const skillFills = document.querySelectorAll('.skill-fill');
@@ -354,9 +458,7 @@ function openImage(imageSrc) {
     
     document.body.style.overflow = 'hidden';
     
-    setTimeout(() => {
-        container.classList.add('show');
-    }, 10);
+    container.classList.add('show');
 }
 
 function closeImageModal() {
@@ -370,6 +472,10 @@ function closeImageModal() {
         }, 300);
     }
 }
+
+// Expose to window for onclick handlers
+window.openImage = openImage;
+window.closeImageModal = closeImageModal;
 
 // Close the container with Escape key
 document.addEventListener('keydown', function(event) {
@@ -552,3 +658,6 @@ function initInteractiveSidebar() {
 function scrollToTop() {
     window.scrollTo({ top: 0 });
 }
+
+// Expose to window for onclick handler
+window.scrollToTop = scrollToTop;
