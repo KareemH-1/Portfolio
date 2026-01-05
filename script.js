@@ -126,37 +126,44 @@ function initializeFilters() {
   }
 }
 
-//Inverted cursor - initialize after DOM loaded
 function initializeCursor() {
   const customCursor = document.querySelector('.custom-cursor');
+  if (!customCursor) return;
   
-  document.addEventListener('mousemove', function(e) {
-    if (customCursor) {
-      customCursor.style.left = e.pageX + 'px';
-      customCursor.style.top = e.pageY + 'px';
+  let isOverInvert = false;
+  
+  document.addEventListener('mouseover', function(e) {
+    const invertElem = e.target.closest('.invert');
+    if (invertElem && !isOverInvert) {
+      isOverInvert = true;
+      customCursor.classList.add('inverted');
     }
   });
-
-  document.querySelectorAll('.invert').forEach(function(elem) {
-    elem.addEventListener('mouseenter', function() {
-      document.body.style.cursor = 'none';
-      if (customCursor) customCursor.style.display = 'block';
-    });
-    elem.addEventListener('mouseleave', function() {
-      document.body.style.cursor = '';
-      if (customCursor) customCursor.style.display = 'none';
-    });
-    elem.addEventListener('mousedown', function() {
-      elem.classList.add('active');
-      if (customCursor) customCursor.classList.add('active');
-    });
-    elem.addEventListener('mouseup', function() {
-      elem.classList.remove('active');
-      if (customCursor) customCursor.classList.remove('active');
-    });
-    elem.addEventListener('mouseleave', function() {
-      if (customCursor) customCursor.classList.remove('active');
-    });
+  
+  document.addEventListener('mouseout', function(e) {
+    const invertElem = e.target.closest('.invert');
+    if (invertElem) {
+      const relatedInvert = e.relatedTarget?.closest('.invert');
+      if (!relatedInvert) {
+        isOverInvert = false;
+        customCursor.classList.remove('inverted');
+      }
+    }
+  });
+  
+  document.addEventListener('mousedown', function(e) {
+    if (isOverInvert) {
+      customCursor.classList.add('active');
+    }
+  });
+  
+  document.addEventListener('mouseup', function(e) {
+    customCursor.classList.remove('active');
+  });
+  
+  document.addEventListener('mousemove', function(e) {
+    customCursor.style.left = e.clientX + 'px';
+    customCursor.style.top = e.clientY + 'px';
   });
 }
 
@@ -169,8 +176,9 @@ window.onload = () => {
       document.body.classList.toggle("light", isLight);
       const themeToggleIcon = document.getElementById("theme-toggle");
       themeToggleIcon.setAttribute("data-lucide", isLight ? "sun" : "moon");
-      updateGithubStats(isLight);
     }
+    updateGithubStats(isLight);
+    
     const asideHidden = localStorage.getItem("aside-hidden") === "true";
     if (asideHidden) {
       const asideElement = document.querySelector("aside");
@@ -212,7 +220,7 @@ window.onload = () => {
         const achievementElement = document.createElement('div');
         achievementElement.classList.add('achievement-card', 'invert');
         achievementElement.innerHTML = `
-          <img src="${achievement.img}" alt="${achievement.name}" loading="lazy" class="achievement-image" onclick="openImage('${achievement.img}')">
+          <img src="${achievement.img}" alt="${achievement.name}" loading="lazy" class="achievement-image" data-modal-src="${achievement.img}">
           <h3>${achievement.name}</h3>
           <p>${achievement.description}</p>
           <a href="${achievement.pdf}" target="_blank" style="text-decoration: none;">
@@ -238,7 +246,7 @@ window.onload = () => {
         const icon = project.linkType === 'github' ? 'github' : 'gamepad-2';
         const buttonText = project.linkType === 'github' ? 'View on GitHub' : 'Play Game';
         projectElement.innerHTML = `
-          <img src="${project.img}" alt="${project.name}" class="project-image" onclick="openImage('${project.img}')">
+          <img src="${project.img}" alt="${project.name}" class="project-image" data-modal-src="${project.img}">
           <h3>${project.name}</h3>
           <p>${project.description}</p>
           <a href="${project.link}" style="text-decoration: none;" target="_blank">
@@ -308,9 +316,8 @@ const toggleTheme = () => {
 
 window.toggleTheme = toggleTheme;
 
-//change card colors depending on the theme
 const updateGithubStats = (isLight) => {
-  const username = "kareemH-1";
+  const username = "KareemH-1";
   const colors = isLight ? {
     bg_color: "FFFFFF",
     title_color: "2563EB", 
@@ -337,28 +344,30 @@ const updateGithubStats = (isLight) => {
 
   const githubStatsCards = document.querySelectorAll('.github-stats-grid .stat-card');
   
-  // GitHub Stats
+  // GitHub Stats - using sigma-five vercel instance
   if (githubStatsCards[0]) {
-    githubStatsCards[0].src = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}`;
+    githubStatsCards[0].src = `https://github-readme-stats-sigma-five.vercel.app/api?username=${username}&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}`;
   }
   
-  // Top Languages
+  // Top Languages - using same instance as GitHub Stats
   if (githubStatsCards[1]) {
-    githubStatsCards[1].src = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=dark&hide_border=true&langs_count=8&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}`;
+    githubStatsCards[1].src = `https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=${username}&layout=compact&langs_count=8&hide_border=true&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}`;
   }
   
-  // GitHub Streak
+  // GitHub Streak - using streak-stats.demolab.com
   if (githubStatsCards[2]) {
-    githubStatsCards[2].src = `https://streak-stats.demolab.com/?user=${username}&theme=dark&hide_border=true&background=${colors.bg_color}&ring=${colors.title_color}&fire=${colors.icon_color}&currStreakLabel=${colors.text_color}&sideLabels=${colors.text_color}&currStreakNum=${colors.currStreakNum}&sideNums=${colors.sideNums}`;
+    githubStatsCards[2].src = `https://streak-stats.demolab.com?user=${username}&hide_border=true&background=${colors.bg_color}&ring=${colors.ring}&fire=${colors.fire}&currStreakLabel=${colors.currStreakLabel}&sideLabels=${colors.sideLabels}&currStreakNum=${colors.currStreakNum}&sideNums=${colors.sideNums}&dates=${colors.text_color}`;
   }
   
   // Profile Summary Card
   if (githubStatsCards[3]) {
-    githubStatsCards[3].src = `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=transparent&bg_color=${colors.bg_color}&title_color=${colors.title_color}&text_color=${colors.text_color}&icon_color=${colors.icon_color}&hide_border=true`;
+    githubStatsCards[3].src = `https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}&theme=${isLight ? 'default' : 'github_dark'}`;
   }
   //contributions
   const contributionGraph = document.querySelector('.contribution-graph .stat-card');
-  contributionGraph.src = `https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=github-compact&hide_border=true&area=true&bg_color=${colors.bg_color}&color=${colors.text_color}&line=${colors.title_color}&point=${colors.icon_color}`;
+  if (contributionGraph) {
+    contributionGraph.src = `https://github-readme-activity-graph.vercel.app/graph?username=${username}&hide_border=true&area=true&bg_color=${colors.bg_color}&color=${colors.text_color}&line=${colors.title_color}&point=${colors.icon_color}`;
+  }
 };
 window.updateGithubStats = updateGithubStats;
 
@@ -472,12 +481,17 @@ function closeImageModal() {
         }, 300);
     }
 }
-
-// Expose to window for onclick handlers
 window.openImage = openImage;
 window.closeImageModal = closeImageModal;
 
-// Close the container with Escape key
+document.addEventListener('click', function(e) {
+    const img = e.target.closest('[data-modal-src]');
+    if (img) {
+        e.stopPropagation();
+        openImage(img.dataset.modalSrc);
+    }
+});
+
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeImageModal();
@@ -485,7 +499,6 @@ document.addEventListener('keydown', function(event) {
 });
 
 
-//change typewriter text
 function initTypewriter() {
     const typewriterElement = document.getElementById('typewriter-text');
     const cursor = document.querySelector('.cursor');
@@ -561,16 +574,27 @@ function createParticles() {
 // Inspired by: https://github.com/micku7zu/vanilla-tilt.js
 // Tutorial reference: https://www.youtube.com/watch?v=XK7T3mY1V-w 
 function init3DTilt() {
-    const cards = document.querySelectorAll('.skill-card, .achievement-card, .project-card');
+    // Use event delegation for dynamically rendered cards
+    document.addEventListener('mousemove', function(e) {
+        const card = e.target.closest('.skill-card, .achievement-card, .project-card');
+        if (card) handleTilt(e, card);
+    });
     
-    cards.forEach(card => {
-        card.addEventListener('mousemove', handleTilt);
-        card.addEventListener('mouseleave', resetTilt);
+    document.addEventListener('mouseleave', function(e) {
+        const card = e.target.closest('.skill-card, .achievement-card, .project-card');
+        if (card) resetTilt(card);
+    }, true);
+    
+    // Also handle mouseout for when cursor leaves cards
+    document.addEventListener('mouseout', function(e) {
+        const card = e.target.closest('.skill-card, .achievement-card, .project-card');
+        const relatedCard = e.relatedTarget?.closest('.skill-card, .achievement-card, .project-card');
+        if (card && card !== relatedCard) resetTilt(card);
     });
 }
 
-function handleTilt(e) {
-    const card = e.currentTarget;
+function handleTilt(e, card) {
+    if (!card) card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -584,8 +608,8 @@ function handleTilt(e) {
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
 }
 
-function resetTilt(e) {
-    const card = e.currentTarget;
+function resetTilt(card) {
+    if (card.currentTarget) card = card.currentTarget;
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
 }
 
@@ -654,10 +678,8 @@ function initInteractiveSidebar() {
     updateSidebarThemeIcon();
 }
 
-//Scroll to top button
 function scrollToTop() {
     window.scrollTo({ top: 0 });
 }
 
-// Expose to window for onclick handler
 window.scrollToTop = scrollToTop;

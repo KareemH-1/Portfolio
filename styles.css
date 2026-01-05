@@ -45,6 +45,7 @@
   scroll-behavior: smooth;
   box-sizing: border-box;
   scrollbar-width: thin;
+  cursor: none;
 }
 
 html, body {
@@ -70,22 +71,34 @@ a[href="https://www.free-counters.org/stats/ifqw"] svg {
 }
 
 .custom-cursor {
-  display: none;
-  position: absolute;
+  display: block;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0.7;
+  transition:
+    transform 0.15s,
+    opacity 0.2s,
+    width 0.2s,
+    height 0.2s,
+    background 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.inverted {
   width: 40px;
   height: 40px;
   background: #ffffff;
-  border-radius: 50%;
-  pointer-events: none;
   mix-blend-mode: difference;
-  z-index: 9999;
-  border: 2px solid var(--primary-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   opacity: 0.85;
-  transition:
-    transform 0.15s,
-    opacity 0.2s;
-  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.active {
+  transform: translate(-50%, -50%) scale(0.8);
 }
 
 .custom-cursor.active {
@@ -216,9 +229,10 @@ nav a:focus::after {
 /*--------------------------------------Title Styling------------------------------------- */
 .title {
   position: relative;
-  width: 100%;
-  max-width: 200px;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 10px 25px;
 }
 
 .top {
@@ -263,12 +277,15 @@ nav a:focus::after {
 }
 
 #typewriter-name {
+  display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid var(--primary-color);
+  width: 0;
   animation: 
-    typing 2.5s steps(12, end) 0.5s both,
+    typing 2.5s steps(12, end) 0.5s forwards,
     blink-name 0.75s step-end infinite 3s;
+  font-size: 1.5em;
 }
 
 @keyframes typing {
@@ -276,7 +293,7 @@ nav a:focus::after {
     width: 0;
   }
   to {
-    width: 100%;
+    width: 12ch;
   }
 }
 

@@ -40,6 +40,11 @@ export function addPagination({containerSelector, itemSelector, items, renderIte
                 container.appendChild(renderItem(item));
             });
             
+            // Re-initialize lucide icons for dynamically rendered content
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+            
             const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
             
             if (filteredItems.length > itemsPerPage) {
