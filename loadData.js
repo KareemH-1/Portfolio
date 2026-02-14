@@ -213,7 +213,7 @@ const achievements = [
 const projects = [
     {
         "img": "assets/Projects/front-end-projects.png",
-        "name": "Mini Front-end Projects",
+        "name": "Mini web Projects",
         "description": "A collection of small front-end projects built with HTML, CSS, and JavaScript.",
         "categories": ["Web-Projects"],
         "link": "https://github.com/KareemH-1/Front-end-projects",
@@ -221,10 +221,10 @@ const projects = [
     },
     {
         "img": "assets/Projects/FirstReactProject.png",
-        "name": "React Projects",
-        "description": "A small collection of React projects created mainly for learning react. The one in the photo was from a tutorial that I followed to get a better understanding of component-based architecture, and how React works.",
+        "name": "Movie App",
+        "description": "A simple movie app built with React. It allows users to search for movies, and shows 5 most searched projects",
         "categories": ["Web-Projects"],
-        "link": "https://github.com/KareemH-1/React",
+        "link": "https://github.com/KareemH-1/React/tree/main/Movie-React-Project",
         "linkType": "github"
     },
     {
@@ -259,20 +259,31 @@ const projects = [
         "link": "https://github.com/KareemH-1/WeatherApp",
         "linkType": "github"
     },
-    {
-        "img": "assets/Projects/TaskManager.png",
-        "name": "Task Manager",
-        "description": "A desktop application built with Electron to manage tasks and increase productivity. The application features a variety of features including adding tasks, view completed tasks, view stats using chart.js and timers.",
-        "categories": ["Web-Projects", "Desktop-Applications"],
-        "link": "https://github.com/KareemH-1/Task-Manager-App-Electron",
-        "linkType": "github"
-    },
+
     {
         "img": "assets/Projects/todolist.png",
         "name": "To-Do List",
         "description": "A simple to-do list application built with Node.js, Express, SQLite, and JWT. It allows users to create, read, update, and delete tasks with a clean and intuitive interface.",
         "categories": ["Web-Projects" , "Full-Stack"],
         "link": "https://github.com/KareemH-1/Todo-App-NodeJS_ExpressJS_SQLite",
+        "linkType": "github"
+    },
+    
+    {
+        "img" : "assets/Projects/dashboard.png" ,
+        "name" : "Dashboard For a Freelancer Client",
+        "description" : "A dashboard for a freelancer client built with React and Chart.js. It features a clean and modern design, and allows the client to view their earnings, projects, tasks and other important metrics in an easy-to-understand format.",
+        "categories": ["Web-Projects"],
+        "link": "https://github.com/KareemH-1/Elevvo-Internship/tree/main/Task6-Dashboard",
+        "linkType": "github"
+    },
+    
+    {
+        "img": "assets/Projects/TaskManager.png",
+        "name": "Task Manager",
+        "description": "A desktop application built with Electron to manage tasks and increase productivity. The application features a variety of features including adding tasks, view completed tasks, view stats using chart.js and timers.",
+        "categories": ["Web-Projects", "Desktop-Applications"],
+        "link": "https://github.com/KareemH-1/Task-Manager-App-Electron",
         "linkType": "github"
     },
     {
@@ -361,3 +372,6 @@ function loadProjects() {
 
 
 export { skills, achievements, projects, loadSkills, loadAchievements, loadProjects };
+if (typeof createCertificationSlides === 'function') {
+  createCertificationSlides(achievements);
+}

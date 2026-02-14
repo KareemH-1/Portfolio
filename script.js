@@ -318,29 +318,30 @@ window.toggleTheme = toggleTheme;
 
 const updateGithubStats = (isLight) => {
   const username = "KareemH-1";
-  const colors = isLight ? {
-    bg_color: "FFFFFF",
-    title_color: "2563EB", 
-    text_color: "1B1B1B",
-    icon_color: "7C3AED",
-    ring: "2563EB",
-    fire: "7C3AED",
-    currStreakLabel: "1B1B1B",
-    sideLabels: "1B1B1B",
-    currStreakNum: "059669",
-    sideNums: "059669"
-  } : {
-    bg_color: "2A2A2A",
-    title_color: "F8B400",
-    text_color: "FFFFFF", 
-    icon_color: "E63946",
-    ring: "F8B400",
-    fire: "E63946",
-    currStreakLabel: "FFFFFF",
-    sideLabels: "FFFFFF",
-    currStreakNum: "4ECDC4",
-    sideNums: "4ECDC4"
-  };
+const colors = isLight ? {
+  bg_color: "F8FAFC",       
+  title_color: "2563EB",    
+  text_color: "1F2937",    
+  icon_color: "0EA5E9",     
+  ring: "2563EB",       
+  fire: "0EA5E9",           
+  currStreakLabel: "4B5563",
+  sideLabels: "4B5563",     
+  currStreakNum: "059669",  
+  sideNums: "059669"        
+} : {
+  bg_color: "121212",       
+  title_color: "3B82F6",    
+  text_color: "E0E0E0",     
+  icon_color: "38B2AC",     
+  ring: "3B82F6",  
+  fire: "38B2AC",      
+  currStreakLabel: "E0E0E0",
+  sideLabels: "E0E0E0",   
+  currStreakNum: "0EA5E9",  
+  sideNums: "0EA5E9"    
+};
+
 
   const githubStatsCards = document.querySelectorAll('.github-stats-grid .stat-card');
   
@@ -507,9 +508,9 @@ function initTypewriter() {
     
     const texts = [
         "Web Developer", 
+        "Data Engineer",
         "Software Developer",
         "Problem Solver",
-        "CS Student",
         "Game Developer"
     ];
     
@@ -570,6 +571,7 @@ function createParticles() {
     }
 }
 
+
 // 3D Card Tilt Effect
 // Inspired by: https://github.com/micku7zu/vanilla-tilt.js
 // Tutorial reference: https://www.youtube.com/watch?v=XK7T3mY1V-w 
@@ -581,7 +583,9 @@ function init3DTilt() {
     });
     
     document.addEventListener('mouseleave', function(e) {
-        const card = e.target.closest('.skill-card, .achievement-card, .project-card');
+        const card = (e.target && typeof e.target.closest === 'function')
+            ? e.target.closest('.skill-card, .achievement-card, .project-card')
+            : null;
         if (card) resetTilt(card);
     }, true);
     
