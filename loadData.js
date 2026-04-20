@@ -347,7 +347,7 @@ function loadProjects() {
             projectElement.classList.add(category);
         });
         
-        const icon = project.linkType === "github" ? "github" : "gamepad-2";
+        const icon = project.linkType === "github" ? "code" : "gamepad-2";
         const buttonText = project.linkType === "github" ? "View on GitHub" : "Play Game";
         
         projectElement.innerHTML = `

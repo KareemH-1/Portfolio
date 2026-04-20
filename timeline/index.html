@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Projects Timeline | Kareem Ahmed</title>
+
+    <meta
+      name="description"
+      content="A complete timeline of Kareem Ahmed's projects, sorted by date with milestone notes."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="timeline.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <a class="back-link" href="../index.html#Projects">Back to Portfolio</a>
+        <p class="eyebrow">Project Journey</p>
+        <h1>Explore all my projects</h1>
+        <p class="hero-copy">
+          A complete timeline of my work, sorted by date, with milestone notes.
+        </p>
+      </header>
+
+      <main>
+        <div class="timeline-toolbar">
+          <button class="nav-btn" id="timeline-prev" type="button" aria-label="Scroll timeline left">←</button>
+          <span class="timeline-hint">Swipe or use arrow controls to move through the timeline</span>
+          <button class="nav-btn" id="timeline-next" type="button" aria-label="Scroll timeline right">→</button>
+        </div>
+
+        <div class="timeline-pagination" aria-live="polite">
+          <p class="timeline-pagination-status">
+            Project <span id="timeline-current-project">1</span> of
+            <span id="timeline-total-projects">0</span>
+          </p>
+          <div class="timeline-jump-buttons" id="timeline-jump-buttons" aria-label="Jump to project"></div>
+        </div>
+
+        <section class="timeline-section" id="timeline-section" aria-label="All projects timeline">
+          <div class="timeline-progress-rail" aria-hidden="true">
+            <div id="timeline-line-progress" class="timeline-line-progress"></div>
+          </div>
+          <div id="timeline-root" class="timeline-root"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="timeline.js?v=20260420b"></script>
+  </body>
+</html>
