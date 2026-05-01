@@ -2,7 +2,7 @@
 
 > **A modern, responsive portfolio showcasing my journey as a Computer Science student and developer**
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Portfolio-f8b400?style=for-the-badge)](https://kareemh-1.github.io/Portfolio/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Portfolio-f8b400?style=for-the-badge)](https://kareem-a-hassan.tech/)
 [![GitHub](https://img.shields.io/badge/GitHub-KareemH--1-181717?style=for-the-badge&logo=github)](https://github.com/KareemH-1)
 
 ## 📸 Preview
@@ -75,7 +75,7 @@ open index.html
 
 ## 🚀 Live Demo
 
-**[👉 View Portfolio](https://kareemh-1.github.io/Portfolio_Real/)**
+**[👉 View Portfolio](https://kareem-a-hassan.tech/)**
 
 ## � Let's Connect
 
