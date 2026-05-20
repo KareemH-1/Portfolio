@@ -112,7 +112,7 @@ export default function Skills() {
               <AnimatePresence mode="popLayout">
                 {sortedSkills.map((skill, i) => (
                   <motion.div
-                    key={skill.skill}
+                    key={`${skill.skill}-${i}`}
                     layout
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -127,7 +127,7 @@ export default function Skills() {
                     <span className="col-span-1 text-mono text-[10px] text-[var(--color-faint)]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="col-span-4 text-sm text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                    <span className={`col-span-4 transition-colors duration-300 ${activeCategory !== 'All' ? 'text-lg font-semibold text-[var(--color-accent)]' : 'text-sm text-[var(--color-text)] group-hover:text-[var(--color-accent)]'}`}>
                       {skill.skill}
                     </span>
                     <div className="col-span-5 relative h-px bg-[var(--color-border)]">
@@ -141,7 +141,7 @@ export default function Skills() {
                           ease: [0.16, 1, 0.3, 1],
                         }}
                         style={{ transformOrigin: "left" }}
-                        className="absolute inset-0 bg-[var(--color-text-dim)] group-hover:bg-[var(--color-accent)] transition-colors duration-300"
+                        className={`absolute inset-0 transition-colors duration-300 ${activeCategory !== 'All' ? 'bg-[var(--color-accent)]' : 'bg-[var(--color-text-dim)] group-hover:bg-[var(--color-accent)]'}`}
                       />
                     </div>
                     <span className="col-span-2 text-mono text-[10px] uppercase tracking-widest text-right text-[var(--color-muted)]">
