@@ -3,12 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+
+  "homepage": "https://kareem-a-hassan.tech",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
+
   "dependencies": {
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
@@ -21,6 +25,7 @@
     "split-type": "^0.3.4",
     "three": "^0.184.0"
   },
+
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.2.4",
@@ -34,6 +39,5 @@
     "globals": "^17.5.0",
     "tailwindcss": "^4.2.4",
     "vite": "^8.0.10"
-  },
-  "homepage": "https://kareem-a-hassan.tech",
+  }
 }
