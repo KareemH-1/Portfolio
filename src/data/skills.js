@@ -36,5 +36,5 @@ export const skillCategories = [
 export const languages = skills.filter((s) => s.categories.includes('Programming'));
 
 export const skillsByExperience = [...skills].sort((a, b) => b.experience - a.experience);
-9
+
 export const skillNames = skills.map((s) => s.skill);

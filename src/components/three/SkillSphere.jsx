@@ -16,6 +16,50 @@ export default function SkillSphere({ skills, activeFilter = 'All' }) {
   const containerRef = useRef(null);
   const stateRef = useRef(null);
 
+  const createFallbackTexture = (skill) => {
+    const size = 256;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+
+    const label = skill.skill
+      .replace(/[^A-Za-z0-9#+]+/g, ' ')
+      .trim()
+      .split(/\s+/)
+      .map((part) => part[0])
+      .join('')
+      .slice(0, 3)
+      .toUpperCase() || 'SK';
+
+    context.clearRect(0, 0, size, size);
+    context.fillStyle = '#101114';
+    context.beginPath();
+    context.roundRect(20, 20, size - 40, size - 40, 48);
+    context.fill();
+
+    context.lineWidth = 8;
+    context.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+    context.stroke();
+
+    context.fillStyle = '#f27f65';
+    context.font = '700 64px Inter, Arial, sans-serif';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText(label, size / 2, size / 2 - 14);
+
+    context.fillStyle = 'rgba(255, 255, 255, 0.82)';
+    context.font = '500 20px Inter, Arial, sans-serif';
+    context.fillText(skill.skill, size / 2, size / 2 + 42);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.needsUpdate = true;
+    return texture;
+  };
+
   // ---------- Setup (runs ONCE) ----------
   useEffect(() => {
     const container = containerRef.current;
@@ -66,6 +110,11 @@ export default function SkillSphere({ skills, activeFilter = 'All' }) {
         depthTest: false,
       });
 
+      const fallbackTexture = createFallbackTexture(skill);
+      if (fallbackTexture) {
+        material.map = fallbackTexture;
+      }
+
       const sprite = new THREE.Sprite(material);
       sprite.position.set(x, y, z);
 
@@ -87,6 +136,7 @@ export default function SkillSphere({ skills, activeFilter = 'All' }) {
         textureLoader.load(
           urls[urlIndex],
           (tex) => {
+            tex.colorSpace = THREE.SRGBColorSpace;
             material.map = tex;
             material.needsUpdate = true;
           },

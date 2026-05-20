@@ -75,8 +75,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 md:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4"
         >
-          <a
-            href="#work"
+          <button
+            type="button"
+            onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
             data-cursor-hover
             className="group relative inline-flex items-center justify-center gap-3 px-7 py-4 bg-[var(--color-text)] text-[var(--color-bg)] font-medium text-sm overflow-hidden"
           >
@@ -85,7 +86,7 @@ export default function Hero() {
               →
             </span>
             <span className="absolute inset-0 bg-[var(--color-accent)] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
-          </a>
+          </button>
 
           <a
             href="/assets/KareemAhmed_CV.pdf"
