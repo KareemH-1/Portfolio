@@ -1,5 +1,5 @@
-const projectsTimeline = [
-   {
+export const projectsTimeline = [
+     {
     id: 'cpp-basics',
     name: 'C++ Basics Practice Projects',
     date: '2024-10',
@@ -304,10 +304,46 @@ const projectsTimeline = [
     linkType: 'github'
   },
  
-  
-
-
-
 ];
 
-export { projectsTimeline };
+// ============ Derived helpers ============
+
+export const sortedTimeline = [...projectsTimeline].sort((a, b) => {
+  const [ya, ma = '01'] = a.date.split('-');
+  const [yb, mb = '01'] = b.date.split('-');
+  return new Date(ya, ma - 1) - new Date(yb, mb - 1);
+});
+
+export const timelineByYear = (() => {
+  const groups = new Map();
+  sortedTimeline.forEach((p) => {
+    const year = p.date.split('-')[0];
+    if (!groups.has(year)) groups.set(year, []);
+    groups.get(year).push(p);
+  });
+  return Array.from(groups.entries()).map(([year, projects]) => ({ year, projects }));
+})();
+
+export const timelineCategories = (() => {
+  const set = new Set();
+  projectsTimeline.forEach((p) => p.categories?.forEach((c) => set.add(c)));
+  return ['All', ...Array.from(set).sort()];
+})();
+
+export const milestoneCount = projectsTimeline.filter((p) => p.dateNote).length;
+
+export const yearCount = timelineByYear.length;
+
+export const formatProjectDate = (value) => {
+  const [year, month = '01'] = value.split('-');
+  return new Date(Number(year), Number(month) - 1, 1).toLocaleString('en-US', {
+    month: 'long',
+    year: 'numeric',
+  });
+};
+
+export const formatShortDate = (value) => {
+  const [year, month = '01'] = value.split('-');
+  const d = new Date(Number(year), Number(month) - 1, 1);
+  return `${d.toLocaleString('en-US', { month: 'short' }).toUpperCase()} '${year.slice(2)}`;
+};
