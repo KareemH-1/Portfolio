@@ -22,7 +22,6 @@ export default function Hero() {
           <span>Open to opportunities · 2026</span>
         </div>
         <div className="hidden md:block">Giza, EG · GMT+2</div>
-        <div className="hidden md:block">Portfolio v2.0</div>
       </motion.div>
 
       <div className="max-w-[1400px] mx-auto w-full mt-10">
@@ -33,7 +32,7 @@ export default function Hero() {
           className="flex items-center gap-3 mb-8"
         >
           <span className="w-12 h-px bg-[var(--color-accent)]" />
-          <span className="eyebrow">Software Engineer · Builder</span>
+          <span className="eyebrow">Software Engineer / Data Engineer</span>
         </motion.div>
 
         {/* Massive name + role */}
@@ -64,8 +63,7 @@ export default function Hero() {
             fast, scalable
           </span>{" "}
           software — from web apps and data pipelines to the occasional game.
-          Currently studying CS at MSA University and interning frontend at
-          Elevvo.
+          Currently studying CS at MSA University and freelancing on different platforms
         </motion.p>
 
         {/* CTA row */}
@@ -75,9 +73,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 md:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4"
         >
-          <button
-            type="button"
-            onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          <a
+            href="#work"
             data-cursor-hover
             className="group relative inline-flex items-center justify-center gap-3 px-7 py-4 bg-[var(--color-text)] text-[var(--color-bg)] font-medium text-sm overflow-hidden"
           >
@@ -86,7 +83,7 @@ export default function Hero() {
               →
             </span>
             <span className="absolute inset-0 bg-[var(--color-accent)] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
-          </button>
+          </a>
 
           <a
             href="/assets/KareemAhmed_CV.pdf"

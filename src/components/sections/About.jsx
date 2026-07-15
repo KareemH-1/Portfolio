@@ -29,22 +29,18 @@ export default function About() {
           </div>
         </div>
 
-        {/* ============== ROW 1: Identity Card + Bio ============== */}
         <div className="grid grid-cols-12 gap-4 md:gap-5 mb-4 md:mb-5">
-          {/* IDENTITY CARD (replaces photo) */}
           <BentoCard className="col-span-12 md:col-span-5 p-0 overflow-hidden">
             <IdentityCard />
           </BentoCard>
 
           {/* BIO */}
           <BentoCard className="col-span-12 md:col-span-7 flex flex-col justify-center">
-            <div className="text-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] mb-4">
-              /// the story
-            </div>
+            
             <p className="text-base md:text-lg leading-relaxed text-[var(--color-text-dim)]">
               I'm a CS student at MSA University with a habit of getting curious about
               <span className="text-[var(--color-text)] font-serif-italic"> too many things at once</span> —
-              web apps, data pipelines, AI, and the occasional Unity game. I care about software that's{' '}
+              web apps, data pipelines, AI, and the occasional game development. I care about software that's{' '}
               <span className="text-[var(--color-text)]">fast, readable,</span> and{' '}
               <span className="text-[var(--color-text)]">does what it says.</span>
             </p>
@@ -62,7 +58,7 @@ export default function About() {
               GPA
             </div>
             <div className="text-4xl md:text-5xl font-semibold tracking-tight text-[var(--color-text)]">
-              <Counter value={3.83} decimals={2} />
+              <Counter value={3.78} decimals={2} />
             </div>
             <div className="text-mono text-xs text-[var(--color-faint)] mt-1">/ 4.00</div>
           </BentoCard>
@@ -117,7 +113,7 @@ export default function About() {
                   <span className="relative w-2 h-2 rounded-full bg-[var(--color-accent)]" />
                 </span>
                 <span className="text-mono text-[10px] uppercase tracking-widest text-[var(--color-text-dim)]">
-                  What I'm on now
+                  What I Recently Accomplished
                 </span>
               </div>
               <h3 className="text-xl md:text-2xl font-medium text-[var(--color-text)] leading-snug">
@@ -142,10 +138,7 @@ export default function About() {
   );
 }
 
-/* ============================================================
-   IDENTITY CARD — typographic alternative to a photo.
-   No image needed. Looks like a designed object, not a missing photo.
-============================================================ */
+
 
 function IdentityCard() {
   return (
@@ -195,7 +188,6 @@ function IdentityCard() {
         </div>
       </div>
 
-      {/* Bottom strip */}
       <div className="relative flex items-end justify-between text-mono text-[10px] uppercase tracking-widest pt-6 border-t border-[var(--color-border)]">
         <div>
           <div className="text-[var(--color-muted)] mb-1">Data Engineer</div>

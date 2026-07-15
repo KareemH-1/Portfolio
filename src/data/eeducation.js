@@ -42,6 +42,6 @@ export const timeline = [
     location: 'Giza, Egypt',
     description:
       'Core CS degree. Coursework across data structures, algorithms, databases, OS, computer organization, and web development.',
-    tags: ['GPA 3.83 / 4.00', 'Excellent', 'Team Lead — JobConnect'],
+    tags: ['GPA 3.78 / 4.00', 'Excellent', 'Deep minds 6 - 2nd place'],
   },
 ];

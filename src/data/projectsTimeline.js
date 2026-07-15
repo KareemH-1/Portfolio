@@ -303,10 +303,53 @@ export const projectsTimeline = [
     link: 'https://github.com/KareemH-1/Elevvo-Internship',
     linkType: 'github'
   },
+  {
+    id: 'OS Scheduling algorithms solver',
+    name: 'OS Scheduling algorithms solver',
+    date: '2026-04',
+    description: 'Implementation of various OS scheduling algorithms (FCFS, SJF, Priority, Round Robin, ....) in web interface. This project is built as part of the Operating Systems course. The system allows users to simulate and compare the performance of different scheduling algorithms, letting them view gantt charts and analyze the results.',
+    categories: ['Algorithm-Projects' , 'University-Projects'],
+    image: '../assets/Projects/osscheduling.png',
+    link: 'https://github.com/KareemH-1/OS_Scheduling_Algorithms',
+    linkType: 'github'
+  },
+ 
+  {
+    id: 'MSA Quality Assurance System',
+    name: 'MSA Quality Assurance System',
+    date: '2026-05',
+    dateNote: 'First project made using software engineering principles',
+    description: 'Enterprise-style quality assurance platform built with React, PHP, MySQL, REST APIs, MVC architecture, and design patterns, featuring role-based workflows, analytics dashboards, surveys, and appeals management. This project is built as part of the Object Oriented Programming course and its concept solves the issues that are facing the university from grade appeals and surveys.',
+    categories: ['Software-Projects', 'Web-Projects', 'University-Projects'],
+    image: '../assets/Projects/MSA_QA.png',
+    link: 'https://github.com/KareemH-1/MSA-Quality-System',
+    linkType: 'github'
+  },
+  {
+    id: 'MultiMedia Game Project (Arcane)',
+    name: 'MultiMedia Game Project (Arcane)',
+    date: '2026-06',
+    dateNote: 'First Project using C# and Widnows Forms',
+    description: 'A complex 2D action-adventure game built entirely in C# and Windows Forms, implementing object-oriented game architecture, real-time combat, enemy AI, RPG mechanics, persistent save systems, and custom multimedia components without external game engines. This project is built as part of the MultiMedia course and its concept is to build a game that is fun to play and has a good story line.',
+    categories: ['Game-Projects', 'University-Projects'],
+    image: '../assets/Projects/Multimedia_Project.png',
+    link: 'https://github.com/KareemH-1/MultiMedia_GameProject',
+    linkType: 'github'
+  },
+  {
+    id: 'Healthcare Fraud Detection',
+    name: 'Healthcare Fraud Detection',
+    date: '2026-07',
+    dateNote: 'First data engineering project and cloud hosting',
+    description: 'A distributed cloud-based healthcare fraud detection system using Azure, Apache Kafka, FastAPI, SQL Server, and machine learning to analyze insurance claims in real time through scalable event-driven microservices. This project is built as part of the Data Engineering course and its concept is to build a system that can detect fraud in healthcare claims in real time.',
+    categories: ['Data-Engineering-Projects', 'Cloud-Projects', 'AI/ML-Projects'],
+    image: '../assets/Projects/healthcare_pipeline.png',
+    link: 'https://github.com/omnyaayman/HelathCare-Fraud-Detection/tree/System-branch',
+    linkType: 'github'
+  },
  
 ];
 
-// ============ Derived helpers ============
 
 export const sortedTimeline = [...projectsTimeline].sort((a, b) => {
   const [ya, ma = '01'] = a.date.split('-');
