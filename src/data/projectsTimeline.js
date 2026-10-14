@@ -51,7 +51,7 @@ export const projectsTimeline = [
     dateNote: 'First AI Project & Started Learning Python',
     description:
       'face recognition system that extracts eigenfaces from grayscale images and identifies individuals using cosine similarity and Euclidean distance on facial feature projections. Built as a part of a linear algebra course project.',
-    categories: ['AI-Projects' , 'University-Projects'],
+    categories: ['AI/ML-Projects' , 'University-Projects'],
     image: '../assets/Projects/LinearAlg.jpg'
   },
   {
@@ -347,7 +347,41 @@ export const projectsTimeline = [
     link: 'https://github.com/omnyaayman/HelathCare-Fraud-Detection/tree/System-branch',
     linkType: 'github'
   },
- 
+  {
+    id: 'Retail Product Recognition',
+    name: 'Retail Product Recognition',
+    date: '2026-08',
+    dateNote: 'First computer vision project',
+    description: 'A computer vision project built to recognize and classify products in a retail environment.',
+    categories: ['AI/ML-Projects'],
+    image: '../assets/Projects/Retail_Product_Recognition.png',
+    link: 'https://github.com/KareemH-1/Retail-Product-Recognition-System',
+    linkType: 'github'
+  },
+  {
+    id: 'Google Sheets Automation Tool',
+    name: 'Google Sheets Automation Tool',
+    date: '2026-08',
+    dateNote: 'First project using OAuth and integrated Google Ecosystem into an application for the first time',
+    description: 'A tool that automates data entry and manipulation in Google Sheets, enabling users to streamline repetitive tasks and improve productivity.',
+    categories: ['Web-Projects', 'Full-Stack-Projects'],
+    image: '../assets/Projects/SheetAutomationTool.png',
+    link: 'https://github.com/KareemH-1/SheetAutomationTool',
+    linkType: 'github' 
+  },
+
+  {
+    id: 'GestureDesk',
+    name: 'GestureDesk',
+    date: '2026-09',
+    description: 'A gesture recognition system that allows users to control their computer using hand gestures.',
+    categories: ['AI/ML-Projects'],
+    image: '../assets/Projects/GestureDesk.jpeg',
+    link: 'https://github.com/KareemH-1/GestureDesk',
+    linkType: 'github'
+  },
+
+
 ];
 
 

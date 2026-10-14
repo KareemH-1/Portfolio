@@ -32,6 +32,7 @@ export const skills = [
   { skill: 'FastAPI', level: 'Intermediate', categories: ['Web-Development', 'Back-End'], experience: 60, icon: 'devicon-fastapi-plain' },
   { skill: 'Azure Cloud', level: 'Intermediate', categories: ['Cloud', 'DevOps'], experience: 60, icon: 'devicon-azure-plain' },
   { skill: 'Docker', level: 'Intermediate', categories: ['Data-Engineering' , 'Cloud', 'DevOps'], experience: 60, icon: 'devicon-docker-plain' },
+  { skill: 'ML/DL', level: 'Intermediate', categories: ['Data-Science', 'Machine-Learning'], experience: 50, icon: 'devicon-tensorflow-plain' },
 ];
 
 export const skillCategories = [

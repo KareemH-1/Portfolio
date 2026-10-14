@@ -1,4 +1,4 @@
-import { HashRouter, Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useLenis } from './hooks/useLenis';
 import Cursor from './components/layout/Cursor';
 import Navbar from './components/layout/Navbar';
@@ -23,12 +23,11 @@ function Layout({ children }) {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
         <Route path="/timeline" element={<Layout><Timeline /></Layout>} />
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

@@ -2,7 +2,7 @@
 export const timeline = [
   {
     kind: 'education',
-    status: 'in-progress',
+    status: 'past',
     title: 'Microsoft Data Engineer Track',
     org: 'DEPI · AI & Data Science',
     period: 'Nov 2025 — Jul 2026',
