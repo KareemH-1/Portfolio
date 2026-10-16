@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FiArrowUpRight, FiX, FiExternalLink, FiGithub } from 'react-icons/fi';
 import { SiUnity } from 'react-icons/si';
 import SplitText from '../ui/SplitText';
@@ -111,8 +112,8 @@ export default function Projects() {
             </div>
 
             {/* CTA — link to full timeline */}
-            <a
-              href="/timeline"
+            <Link
+              to="/timeline"
               data-cursor-hover
               className="group mt-8 flex items-center justify-between gap-4 p-5 border border-[var(--color-border-strong)] hover:border-[var(--color-accent)] transition-all duration-500"
             >
@@ -128,7 +129,7 @@ export default function Projects() {
                 size={28}
                 className="text-[var(--color-muted)] group-hover:text-[var(--color-accent)] group-hover:rotate-45 transition-all duration-500 flex-shrink-0"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
